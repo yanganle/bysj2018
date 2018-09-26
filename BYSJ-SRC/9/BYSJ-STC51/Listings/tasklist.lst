@@ -1,0 +1,106 @@
+C51 COMPILER V9.56.0.0   TASKLIST                                                          09/19/2018 23:15:31 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE TASKLIST
+OBJECT MODULE PLACED IN .\Objects\tasklist.obj
+COMPILER INVOKED BY: D:\Program Files\Keil\C51\BIN\C51.EXE src\tasklist.c LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE INCDIR(.\i
+                    -nc) DEBUG PRINT(.\Listings\tasklist.lst) TABS(2) OBJECT(.\Objects\tasklist.obj)
+
+line level    source
+
+   1          #include "tasklist.h"
+   2          #include "LCD12864.h"
+   3          #include "io.h"
+   4          #include "DHT11.h"
+   5          #include "agreement.h"
+   6          
+   7          u8 u8Humi[4];
+   8          u8 u8Temp[4];
+   9          u8 sdata[4];
+  10          u8 show1[] = {"有人"};
+  11          u8 show2[] = {"无人"};
+  12          u8 show3[] = {"噪声"};
+  13          u8 show4[] = {"安静"};
+  14          
+  15          void MyTask_One(void)
+  16          {
+  17   1        DHT11_receive(u8Temp, u8Humi);
+  18   1        display_humiture(u8Temp, u8Humi);
+  19   1        sdata[0] = 0;
+  20   1        sdata[1] = TH;
+  21   1        sdata[2] = 0;
+  22   1        sdata[3] = RH;
+  23   1        Send_SensorData(SENSOR_DHT11, 0, sdata);
+  24   1      }
+  25          
+  26          u8 humanflag = 0;
+  27          void MyTask_Two(void)
+  28          {
+  29   1        if(IO_HUMAN == 1)
+  30   1        {
+  31   2          sdata[3] = 0x01;
+  32   2          display_human(show1);
+  33   2        }
+  34   1        else{
+  35   2          sdata[3] = 0x00;
+  36   2          display_human(show2);
+  37   2        } 
+  38   1        sdata[0] = 0;
+  39   1        sdata[1] = 0;
+  40   1        sdata[2] = 0;
+  41   1        Send_SensorData(SENSOR_HUMAN, 0, sdata);
+  42   1      }
+  43          
+  44          u8 soundflag = 0;
+  45          void MyTask_Three(void)
+  46          {
+  47   1        if(IO_SOUND == 1)
+  48   1        {
+  49   2          sdata[3] = 0x01;
+  50   2          display_sound(show3);
+  51   2        }
+  52   1        else{
+  53   2          sdata[3] = 0x00;
+  54   2          display_sound(show4);
+C51 COMPILER V9.56.0.0   TASKLIST                                                          09/19/2018 23:15:31 PAGE 2   
+
+  55   2        }
+  56   1        sdata[0] = 0;
+  57   1        sdata[1] = 0;
+  58   1        sdata[2] = 0;
+  59   1        Send_SensorData(SENSOR_SOUND, 0, sdata);
+  60   1      }
+  61          
+  62          void MyTask_Four(void)
+  63          {
+  64   1        if(IO_FAN == 1)
+  65   1        {
+  66   2          sdata[3] = 0x01;
+  67   2        }
+  68   1        else{
+  69   2          sdata[3] = 0x00;
+  70   2        }
+  71   1        sdata[0] = 0;
+  72   1        sdata[1] = 0;
+  73   1        sdata[2] = 0;
+  74   1        Send_SensorData(SENSOR_FAN, 0, sdata);
+  75   1      }
+  76          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    222    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     34    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

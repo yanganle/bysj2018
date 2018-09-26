@@ -1,0 +1,365 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         08/Sep/2018  23:06:14 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  F:\BYSJ\ZigBeePro\Projects\zstack\Samples\SampleAp #
+#                          p\Source\dig_sensor.c                              #
+#    Command line       =  -f F:\BYSJ\ZigBeePro\Projects\zstack\Samples\Sampl #
+#                          eApp\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg #
+#                           (-DCPU32MHZ -DROOT=__near_func                    #
+#                          -DMAC_CFG_TX_DATA_MAX=3 -DMAC_CFG_TX_MAX=6         #
+#                          -DMAC_CFG_RX_MAX=3) -f F:\BYSJ\ZigBeePro\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\..\..\..\Tools\C #
+#                          C2530DB\f8wConfig.cfg (-DZIGBEEPRO -DSECURE=0      #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0x1234                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 F:\BYSJ\ZigBeePro\Projects\ #
+#                          zstack\Samples\SampleApp\Source\dig_sensor.c -D    #
+#                          NWK_AUTO_POLL -D ZTOOL_P1 -D MT_TASK -D            #
+#                          MT_SYS_FUNC -D MT_ZDO_FUNC -D LCD_SUPPORTED=DEBUG  #
+#                          -lC F:\BYSJ\ZigBeePro\Projects\zstack\Samples\Samp #
+#                          leApp\CC2530DB\EndDeviceEB\List\ -lA               #
+#                          F:\BYSJ\ZigBeePro\Projects\zstack\Samples\SampleAp #
+#                          p\CC2530DB\EndDeviceEB\List\ --diag_suppress       #
+#                          Pe001,Pa010 -o F:\BYSJ\ZigBeePro\Projects\zstack\S #
+#                          amples\SampleApp\CC2530DB\EndDeviceEB\Obj\ -e      #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I F:\BYSJ\ZigBeePro\Projects\zstack\Samples\Sampl #
+#                          eApp\CC2530DB\ -I F:\BYSJ\ZigBeePro\Projects\zstac #
+#                          k\Samples\SampleApp\CC2530DB\..\Source\ -I         #
+#                          F:\BYSJ\ZigBeePro\Projects\zstack\Samples\SampleAp #
+#                          p\CC2530DB\..\..\..\ZMain\TI2530DB\ -I             #
+#                          F:\BYSJ\ZigBeePro\Projects\zstack\Samples\SampleAp #
+#                          p\CC2530DB\..\..\..\..\..\Components\hal\include\  #
+#                          -I F:\BYSJ\ZigBeePro\Projects\zstack\Samples\Sampl #
+#                          eApp\CC2530DB\..\..\..\..\..\Components\hal\target #
+#                          \CC2530EB\ -I F:\BYSJ\ZigBeePro\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\include\ -I F:\BYSJ\ZigBeePro\Projects\zstack #
+#                          \Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\mac\high_level\ -I F:\BYSJ\ZigBeePro\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\C #
+#                          omponents\mac\low_level\srf04\ -I                  #
+#                          F:\BYSJ\ZigBeePro\Projects\zstack\Samples\SampleAp #
+#                          p\CC2530DB\..\..\..\..\..\Components\mac\low_level #
+#                          \srf04\single_chip\ -I F:\BYSJ\ZigBeePro\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\C #
+#                          omponents\mt\ -I F:\BYSJ\ZigBeePro\Projects\zstack #
+#                          \Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\osal\include\ -I F:\BYSJ\ZigBeePro\Projects\zs #
+#                          tack\Samples\SampleApp\CC2530DB\..\..\..\..\..\Com #
+#                          ponents\services\saddr\ -I                         #
+#                          F:\BYSJ\ZigBeePro\Projects\zstack\Samples\SampleAp #
+#                          p\CC2530DB\..\..\..\..\..\Components\services\sdat #
+#                          a\ -I F:\BYSJ\ZigBeePro\Projects\zstack\Samples\Sa #
+#                          mpleApp\CC2530DB\..\..\..\..\..\Components\stack\a #
+#                          f\ -I F:\BYSJ\ZigBeePro\Projects\zstack\Samples\Sa #
+#                          mpleApp\CC2530DB\..\..\..\..\..\Components\stack\n #
+#                          wk\ -I F:\BYSJ\ZigBeePro\Projects\zstack\Samples\S #
+#                          ampleApp\CC2530DB\..\..\..\..\..\Components\stack\ #
+#                          sapi\ -I F:\BYSJ\ZigBeePro\Projects\zstack\Samples #
+#                          \SampleApp\CC2530DB\..\..\..\..\..\Components\stac #
+#                          k\sec\ -I F:\BYSJ\ZigBeePro\Projects\zstack\Sample #
+#                          s\SampleApp\CC2530DB\..\..\..\..\..\Components\sta #
+#                          ck\sys\ -I F:\BYSJ\ZigBeePro\Projects\zstack\Sampl #
+#                          es\SampleApp\CC2530DB\..\..\..\..\..\Components\st #
+#                          ack\zdo\ -I F:\BYSJ\ZigBeePro\Projects\zstack\Samp #
+#                          les\SampleApp\CC2530DB\..\..\..\..\..\Components\z #
+#                          mac\ -I F:\BYSJ\ZigBeePro\Projects\zstack\Samples\ #
+#                          SampleApp\CC2530DB\..\..\..\..\..\Components\zmac\ #
+#                          f8w\ -Ohz --require_prototypes                     #
+#    List file          =  F:\BYSJ\ZigBeePro\Projects\zstack\Samples\SampleAp #
+#                          p\CC2530DB\EndDeviceEB\List\dig_sensor.lst         #
+#    Object file        =  F:\BYSJ\ZigBeePro\Projects\zstack\Samples\SampleAp #
+#                          p\CC2530DB\EndDeviceEB\Obj\dig_sensor.r51          #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+F:\BYSJ\ZigBeePro\Projects\zstack\Samples\SampleApp\Source\dig_sensor.c
+      1          #include "dig_sensor.h"
+
+   \                                 In  segment SFR_AN, at 0x80
+   \   union <unnamed> volatile __sfr _A_P0
+   \                     _A_P0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x90
+   \   union <unnamed> volatile __sfr _A_P1
+   \                     _A_P1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf3
+   \   unsigned char volatile __sfr P0SEL
+   \                     P0SEL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf6
+   \   unsigned char volatile __sfr P1INP
+   \                     P1INP:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfd
+   \   unsigned char volatile __sfr P0DIR
+   \                     P0DIR:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfe
+   \   unsigned char volatile __sfr P1DIR
+   \                     P1DIR:
+   \   000000                DS 1
+      2          
+      3          #define DATA_PIN05          P0_5    //定义P0.5口为传感器的输入端
+      4          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+      5          uint8 relay_one_value =0;
+   \                     relay_one_value:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+      6          uint8 relay_two_value =0;
+   \                     relay_two_value:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+      7          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+      8          void InitDigSensor(void)
+   \                     InitDigSensor:
+      9          {  
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     10          #ifdef DEVICE_LIGHT
+     11            P0DIR &= ~0x20;;        //P0.5       
+   \   000000   53FDDF       ANL     0xfd,#0xdf
+     12            P0SEL &= ~0x20;;        //设置P0.5为普通IO口
+   \   000003   53F3DF       ANL     0xf3,#0xdf
+     13          #endif
+     14          #ifdef DEVICE_GAS_MQ135
+     15            P0DIR &= ~0x40;;        //P0.6      
+   \   000006   53FDBF       ANL     0xfd,#0xbf
+     16            //P0SEL &= ~0x40;;        //设置P0.6为普通IO口
+     17          #endif
+     18          #ifdef DEVICE_HT11
+     19            P0DIR &= ~0x80;        //P0.7      
+   \   000009   53FD7F       ANL     0xfd,#0x7f
+     20            P0SEL &= ~0x80;        //设置P0.7为普通IO口
+   \   00000C   53F37F       ANL     0xf3,#0x7f
+     21          #endif
+     22            
+     23          #ifdef DEVICE_RELAY_ONE
+     24            P1DIR |= (0x01<<5);   //output mode
+   \   00000F   43FE20       ORL     0xfe,#0x20
+     25            P1INP &= ~(0x01<<5);  //Pull up 
+   \   000012   53F6DF       ANL     0xf6,#0xdf
+     26            P1_5 = 0;// LOW 	
+   \   000015   C295         CLR     0x90.5
+     27          #endif  
+     28          #ifdef DEVICE_RELAY_TWO
+     29            P1DIR |= (0x01<<6);   //output mode
+   \   000017   43FE40       ORL     0xfe,#0x40
+     30            P1INP &= ~(0x01<<6);  //Pull up 
+   \   00001A   53F6BF       ANL     0xf6,#0xbf
+     31            P1_6 = 0;// LOW 	
+   \   00001D   C296         CLR     0x90.6
+     32          #endif
+     33          }
+   \   00001F   02....       LJMP    ?BRET
+   \   000022                REQUIRE P0DIR
+   \   000022                REQUIRE P0SEL
+   \   000022                REQUIRE P1DIR
+   \   000022                REQUIRE P1INP
+   \   000022                REQUIRE _A_P1
+     34          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     35          uint8 GetLightData(void) //光照传感器
+   \                     GetLightData:
+     36          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     37            uint8 LightState;
+     38            LightState = DATA_PIN05;
+     39            
+     40            return LightState;
+   \   000000   A285         MOV     C,0x80.5
+   \   000002   E4           CLR     A
+   \   000003   33           RLC     A
+   \   000004   F9           MOV     R1,A
+   \   000005   02....       LJMP    ?BRET
+   \   000008                REQUIRE _A_P0
+     41          }
+     42          
+     43          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     44          void CtrlRelyOne(uint8 state) //继电器设备一
+   \                     CtrlRelyOne:
+     45          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     46            if(state == 0x01)
+   \   000004   7401         MOV     A,#0x1
+   \   000006   69           XRL     A,R1
+   \   000007   7009         JNZ     ??CtrlRelyOne_0
+     47            {
+     48              P1_5 = 0x01;
+   \   000009   D295         SETB    0x90.5
+     49              relay_one_value = 0x01;
+   \   00000B   90....       MOV     DPTR,#relay_one_value
+   \   00000E   7401         MOV     A,#0x1
+   \   000010   8006         SJMP    ??CtrlRelyOne_1
+     50            }else
+     51            {
+     52              P1_5 = 0x00;
+   \                     ??CtrlRelyOne_0:
+   \   000012   C295         CLR     0x90.5
+     53              relay_one_value = 0x00;
+   \   000014   90....       MOV     DPTR,#relay_one_value
+   \   000017   E4           CLR     A
+     54            }
+   \                     ??CtrlRelyOne_1:
+   \   000018                REQUIRE ?Subroutine0
+   \   000018                REQUIRE _A_P1
+   \   000018                ; // Fall through to label ?Subroutine0
+     55          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001   D083         POP     DPH
+   \   000003   D082         POP     DPL
+   \   000005   02....       LJMP    ?BRET
+     56          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     57          void CtrlRelyTwo(uint8 state) //继电器设备二
+   \                     CtrlRelyTwo:
+     58          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     59            if(state == 0x01)
+   \   000004   7401         MOV     A,#0x1
+   \   000006   69           XRL     A,R1
+   \   000007   7009         JNZ     ??CtrlRelyTwo_0
+     60            {
+     61              P1_6 = 0x01;
+   \   000009   D296         SETB    0x90.6
+     62              relay_two_value = 0x01;
+   \   00000B   90....       MOV     DPTR,#relay_two_value
+   \   00000E   7401         MOV     A,#0x1
+   \   000010   8006         SJMP    ??CtrlRelyTwo_1
+     63            }else
+     64            {
+     65              P1_6 = 0x00;
+   \                     ??CtrlRelyTwo_0:
+   \   000012   C296         CLR     0x90.6
+     66              relay_two_value = 0x00;
+   \   000014   90....       MOV     DPTR,#relay_two_value
+   \   000017   E4           CLR     A
+     67            }
+   \                     ??CtrlRelyTwo_1:
+   \   000018   80..         SJMP    ?Subroutine0
+   \   00001A                REQUIRE _A_P1
+     68          }
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??InitDigSensor?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    InitDigSensor
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??GetLightData?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    GetLightData
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??CtrlRelyOne?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    CtrlRelyOne
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??CtrlRelyTwo?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    CtrlRelyTwo
+
+   Maximum stack usage in bytes:
+
+     Function      ISTACK PSTACK XSTACK
+     --------      ------ ------ ------
+     CtrlRelyOne       2      0      0
+     CtrlRelyTwo       2      0      0
+     GetLightData      0      0      0
+     InitDigSensor     0      0      0
+
+
+   Segment part sizes:
+
+     Function/Label        Bytes
+     --------------        -----
+     _A_P0                    1
+     _A_P1                    1
+     P0SEL                    1
+     P1INP                    1
+     P0DIR                    1
+     P1DIR                    1
+     relay_one_value          1
+     relay_two_value          1
+     InitDigSensor           34
+     GetLightData             8
+     CtrlRelyOne             24
+     ?Subroutine0             8
+     CtrlRelyTwo             26
+     ??InitDigSensor?relay    6
+     ??GetLightData?relay     6
+     ??CtrlRelyOne?relay      6
+     ??CtrlRelyTwo?relay      6
+
+ 
+ 100 bytes in segment BANKED_CODE
+  24 bytes in segment BANK_RELAYS
+   6 bytes in segment SFR_AN
+   2 bytes in segment XDATA_Z
+ 
+ 124 bytes of CODE  memory
+   0 bytes of DATA  memory (+ 6 bytes shared)
+   2 bytes of XDATA memory
+
+Errors: none
+Warnings: none

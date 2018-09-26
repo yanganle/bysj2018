@@ -1,0 +1,174 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         10/Sep/2018  23:00:22 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  F:\BYSJ\ZigBeePro\Projects\zstack\Samples\SampleAp #
+#                          p\Source\agreement.c                               #
+#    Command line       =  -f F:\BYSJ\ZigBeePro\Projects\zstack\Samples\Sampl #
+#                          eApp\CC2530DB\..\..\..\Tools\CC2530DB\f8wCoord.cfg #
+#                           (-DCPU32MHZ -DROOT=__near_func                    #
+#                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                   #
+#                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8         #
+#                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)    #
+#                          -f F:\BYSJ\ZigBeePro\Projects\zstack\Samples\Sampl #
+#                          eApp\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cf #
+#                          g (-DZIGBEEPRO -DSECURE=0 -DZG_SECURE_DYNAMIC=0    #
+#                          -DREFLECTOR -DDEFAULT_CHANLIST=0x00000800          #
+#                          -DZDAPP_CONFIG_PAN_ID=0x1234                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 F:\BYSJ\ZigBeePro\Projects\ #
+#                          zstack\Samples\SampleApp\Source\agreement.c -D     #
+#                          COOR_DEVICE_UART1 -D xZTOOL_P1 -D ZAPP_P1 -D       #
+#                          MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC -D           #
+#                          LCD_SUPPORTED=DEBUG -lC F:\BYSJ\ZigBeePro\Projects #
+#                          \zstack\Samples\SampleApp\CC2530DB\CoordinatorEB\L #
+#                          ist\ -lA F:\BYSJ\ZigBeePro\Projects\zstack\Samples #
+#                          \SampleApp\CC2530DB\CoordinatorEB\List\            #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          F:\BYSJ\ZigBeePro\Projects\zstack\Samples\SampleAp #
+#                          p\CC2530DB\CoordinatorEB\Obj\ -e --no_code_motion  #
+#                          --debug --core=plain --dptr=16,1                   #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I F:\BYSJ\ZigBeePro\Projects\zstack\Samples\Sampl #
+#                          eApp\CC2530DB\ -I F:\BYSJ\ZigBeePro\Projects\zstac #
+#                          k\Samples\SampleApp\CC2530DB\..\Source\ -I         #
+#                          F:\BYSJ\ZigBeePro\Projects\zstack\Samples\SampleAp #
+#                          p\CC2530DB\..\..\..\ZMain\TI2530DB\ -I             #
+#                          F:\BYSJ\ZigBeePro\Projects\zstack\Samples\SampleAp #
+#                          p\CC2530DB\..\..\..\..\..\Components\hal\include\  #
+#                          -I F:\BYSJ\ZigBeePro\Projects\zstack\Samples\Sampl #
+#                          eApp\CC2530DB\..\..\..\..\..\Components\hal\target #
+#                          \CC2530EB\ -I F:\BYSJ\ZigBeePro\Projects\zstack\Sa #
+#                          mples\SampleApp\CC2530DB\..\..\..\..\..\Components #
+#                          \mac\include\ -I F:\BYSJ\ZigBeePro\Projects\zstack #
+#                          \Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\mac\high_level\ -I F:\BYSJ\ZigBeePro\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\C #
+#                          omponents\mac\low_level\srf04\ -I                  #
+#                          F:\BYSJ\ZigBeePro\Projects\zstack\Samples\SampleAp #
+#                          p\CC2530DB\..\..\..\..\..\Components\mac\low_level #
+#                          \srf04\single_chip\ -I F:\BYSJ\ZigBeePro\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\C #
+#                          omponents\mt\ -I F:\BYSJ\ZigBeePro\Projects\zstack #
+#                          \Samples\SampleApp\CC2530DB\..\..\..\..\..\Compone #
+#                          nts\osal\include\ -I F:\BYSJ\ZigBeePro\Projects\zs #
+#                          tack\Samples\SampleApp\CC2530DB\..\..\..\..\..\Com #
+#                          ponents\services\saddr\ -I                         #
+#                          F:\BYSJ\ZigBeePro\Projects\zstack\Samples\SampleAp #
+#                          p\CC2530DB\..\..\..\..\..\Components\services\sdat #
+#                          a\ -I F:\BYSJ\ZigBeePro\Projects\zstack\Samples\Sa #
+#                          mpleApp\CC2530DB\..\..\..\..\..\Components\stack\a #
+#                          f\ -I F:\BYSJ\ZigBeePro\Projects\zstack\Samples\Sa #
+#                          mpleApp\CC2530DB\..\..\..\..\..\Components\stack\n #
+#                          wk\ -I F:\BYSJ\ZigBeePro\Projects\zstack\Samples\S #
+#                          ampleApp\CC2530DB\..\..\..\..\..\Components\stack\ #
+#                          sapi\ -I F:\BYSJ\ZigBeePro\Projects\zstack\Samples #
+#                          \SampleApp\CC2530DB\..\..\..\..\..\Components\stac #
+#                          k\sec\ -I F:\BYSJ\ZigBeePro\Projects\zstack\Sample #
+#                          s\SampleApp\CC2530DB\..\..\..\..\..\Components\sta #
+#                          ck\sys\ -I F:\BYSJ\ZigBeePro\Projects\zstack\Sampl #
+#                          es\SampleApp\CC2530DB\..\..\..\..\..\Components\st #
+#                          ack\zdo\ -I F:\BYSJ\ZigBeePro\Projects\zstack\Samp #
+#                          les\SampleApp\CC2530DB\..\..\..\..\..\Components\z #
+#                          mac\ -I F:\BYSJ\ZigBeePro\Projects\zstack\Samples\ #
+#                          SampleApp\CC2530DB\..\..\..\..\..\Components\zmac\ #
+#                          f8w\ -Ohz --require_prototypes                     #
+#    List file          =  F:\BYSJ\ZigBeePro\Projects\zstack\Samples\SampleAp #
+#                          p\CC2530DB\CoordinatorEB\List\agreement.lst        #
+#    Object file        =  F:\BYSJ\ZigBeePro\Projects\zstack\Samples\SampleAp #
+#                          p\CC2530DB\CoordinatorEB\Obj\agreement.r51         #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+F:\BYSJ\ZigBeePro\Projects\zstack\Samples\SampleApp\Source\agreement.c
+      1          /******************************
+      2          ** @time；2018/08/15 11:26:02
+      3          ** @Author: superman
+      4          ** @email: ***@qq.com
+      5          ** @brief: 通讯协议解析
+      6          *******************************/
+      7          #include "agreement.h"
+      8          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+      9          void* agreementParse(unsigned char *str)
+   \                     agreementParse:
+     10          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     11            /*if (str[0] == DATA_HEADH && str[1] == DATA_HEADL)
+     12            {
+     13                    switch (str[2]) //不同传感器
+     14                    {
+     15                            case SENSOR_LIGHT:
+     16                                    //do somthing
+     17                                    break;
+     18                            case SENSOR_AM231:
+     19                                    //do somthing
+     20                                    break;
+     21                            default:
+     22                                    break;
+     23                    }
+     24            }*/
+     25            return NULL;
+   \   000000   7A00         MOV     R2,#0x0
+   \   000002   7B00         MOV     R3,#0x0
+   \   000004   02....       LJMP    ?BRET
+     26          }
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??agreementParse?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    agreementParse
+     27          
+
+   Maximum stack usage in bytes:
+
+     Function       ISTACK PSTACK XSTACK
+     --------       ------ ------ ------
+     agreementParse     0      0      0
+
+
+   Segment part sizes:
+
+     Function/Label         Bytes
+     --------------         -----
+     agreementParse            7
+     ??agreementParse?relay    6
+
+ 
+ 7 bytes in segment BANKED_CODE
+ 6 bytes in segment BANK_RELAYS
+ 
+ 13 bytes of CODE memory
+
+Errors: none
+Warnings: none

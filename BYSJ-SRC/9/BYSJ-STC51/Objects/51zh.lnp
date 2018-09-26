@@ -1,0 +1,16 @@
+".\Objects\agreement.obj",
+".\Objects\delay.obj",
+".\Objects\dgus.obj",
+".\Objects\display.obj",
+".\Objects\io.obj",
+".\Objects\main.obj",
+".\Objects\mysys.obj",
+".\Objects\sensor.obj",
+".\Objects\tasklist.obj",
+".\Objects\uart.obj",
+".\Objects\uart2.obj",
+".\Objects\uart3.obj",
+".\Objects\AM231X.obj",
+".\Objects\myiic.obj" 
+TO ".\Objects\51zh" 
+PRINT(".\Listings\51zh.m51") RAMSIZE(256) 

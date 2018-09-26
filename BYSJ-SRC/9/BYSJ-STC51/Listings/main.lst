@@ -1,0 +1,106 @@
+C51 COMPILER V9.56.0.0   MAIN                                                              09/19/2018 23:15:32 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: D:\Program Files\Keil\C51\BIN\C51.EXE src\main.c LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE INCDIR(.\inc) 
+                    -DEBUG PRINT(.\Listings\main.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg52.h>  
+   2          #include <stdio.h>
+   3          #include "mysys.h"
+   4          #include "io.h"
+   5          #include "uart.h"
+   6          #include "DHT11.h"
+   7          #include "tasklist.h"
+   8          #include "agreement.h"
+   9          #include "LCD12864.h"
+  10          
+  11          void bsp_init(void);
+  12          
+  13          void main(void)
+  14          {
+  15   1        bsp_init();
+  16   1        while(1)
+  17   1        { 
+  18   2          if(flag_taskOne)
+  19   2          {
+  20   3            //MyTask_One(); //温湿度
+  21   3            flag_taskOne=0;
+  22   3          }
+  23   2          if(flag_taskTwo)
+  24   2          {
+  25   3            //MyTask_Two(); //人体检测
+  26   3            flag_taskTwo=0;
+  27   3          }
+  28   2          if(flag_taskThree)
+  29   2          {
+  30   3            //MyTask_Three(); //声响检测
+  31   3            flag_taskThree=0;
+  32   3          }
+  33   2              if(flag_taskThree)
+  34   2          {
+  35   3            //MyTask_Four(); //声响检测
+  36   3            flag_taskFour=0;
+  37   3          }
+  38   2          
+  39   2          if(SMARTMODE) //自动模式
+  40   2          {
+  41   3            if(uartRxSta)
+  42   3            {
+  43   4              agreementParse(UART_RX_BUF);
+  44   4              clearBuf();
+  45   4              uartRxSta = 0;
+  46   4              uartRxCount = 0;
+  47   4            }
+  48   3            if(TH>TEMPTHRESHOLD)
+  49   3            {
+  50   4              FAN_ON();
+  51   4            }
+  52   3            else{
+  53   4              FAN_OFF();
+  54   4            }
+C51 COMPILER V9.56.0.0   MAIN                                                              09/19/2018 23:15:32 PAGE 2   
+
+  55   3          }else //手动模式
+  56   2          { 
+  57   3            if(uartRxSta)
+  58   3            {
+  59   4              uartSendData(UART_RX_BUF, uartRxCount);
+  60   4              //agreementParse(UART_RX_BUF);
+  61   4              uartRxSta = 0;
+  62   4              uartRxCount = 0;
+  63   4            }
+  64   3          }
+  65   2        } 
+  66   1      }
+  67          
+  68          void bsp_init(void)
+  69          {
+  70   1        UartInit();
+  71   1        mysysinit();
+  72   1        display_init();
+  73   1      }
+  74            
+  75          
+  76          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    132    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,87 @@
+C51 COMPILER V9.56.0.0   AGREEMENT                                                         09/19/2018 23:15:31 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE AGREEMENT
+OBJECT MODULE PLACED IN .\Objects\agreement.obj
+COMPILER INVOKED BY: D:\Program Files\Keil\C51\BIN\C51.EXE src\agreement.c LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE INCDIR(.\
+                    -inc) DEBUG PRINT(.\Listings\agreement.lst) TABS(2) OBJECT(.\Objects\agreement.obj)
+
+line level    source
+
+   1          /******************************
+   2          ** @time；2018/08/15 11:26:02
+   3          ** @Author: superman
+   4          ** @email: ***@qq.com
+   5          ** @brief: 通讯协议解析
+   6          *******************************/
+   7          #include "agreement.h"
+   8          #include "uart.h"
+   9          #include "io.h"
+  10          
+  11          u8 SMARTMODE = 0;
+  12          u8 TEMPTHRESHOLD;
+  13          
+  14          agreementData dataBuffer = {DATA_HEADH,DATA_HEADL,0x01,0,0,0,0,0,0,CMDID_UP,0,0,0,0,0,0,0,DATA_END};
+  15          
+  16          void Send_SensorData(u8 _SensorStyle, u8 _SenserIndex, u8 *_pData)
+  17          {
+  18   1        dataBuffer.dataDetail.value.sensorID   = _SenserIndex;
+  19   1        dataBuffer.dataDetail.value.Sensorvalue[0] = _pData[0];
+  20   1        dataBuffer.dataDetail.value.Sensorvalue[1] = _pData[1];
+  21   1        dataBuffer.dataDetail.value.Sensorvalue[2] = _pData[2];
+  22   1        dataBuffer.dataDetail.value.Sensorvalue[3] = _pData[3];
+  23   1        dataBuffer.dataDetail.value.sensorType = _SensorStyle;
+  24   1        
+  25   1        uartSendData(dataBuffer.dataArry, DATA_LENGTH);
+  26   1      }
+  27          
+  28          void agreementParse(u8 *str)
+  29          {
+  30   1        if(str[0] == DATA_HEADH && str[1] == DATA_HEADL && str[17] == DATA_END)
+  31   1        {
+  32   2          if(str[9] == CMDID_MODE) //设置模式
+  33   2          {
+  34   3            SMARTMODE = str[16];
+  35   3            TEMPTHRESHOLD = str[15];    
+  36   3          }
+  37   2          
+  38   2          if(str[9] == CMDID_DOWN) //下发控制指令
+  39   2          {
+  40   3            switch (str[10]) //不同传感器
+  41   3            {
+  42   4              case SENSOR_FAN://风扇
+  43   4                if(str[16])
+  44   4                  FAN_ON();
+  45   4                else
+  46   4                  FAN_OFF();
+  47   4                break;
+  48   4              case SENSOR_LAMP://灯光
+  49   4                //do somthing
+  50   4                break;
+  51   4              default:
+  52   4                break;
+  53   4            }
+  54   3          }
+C51 COMPILER V9.56.0.0   AGREEMENT                                                         09/19/2018 23:15:31 PAGE 2   
+
+  55   2        }
+  56   1      }
+  57          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    142    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     20    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

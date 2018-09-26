@@ -1,0 +1,1 @@
+"src\myiic.c" LARGE OMF2 OPTIMIZE (8,SPEED) BROWSE INCDIR(.\inc) DEBUG PRINT(.\Listings\myiic.lst) TABS (2) OBJECT(.\Objects\myiic.obj)

@@ -1,0 +1,16 @@
+INPUT(
+./debug\main.o
+./debug\widget.o
+./debug\homeform.o
+./debug\nodemessage.o
+./debug\comthread.o
+./debug\win_qextserialport.o
+./debug\qextserialbase.o
+./debug\qrc_image.o
+./debug\moc_widget.o
+./debug\moc_homeform.o
+./debug\moc_nodemessage.o
+./debug\moc_comthread.o
+./debug\moc_win_qextserialport.o
+./debug\moc_qextserialbase.o
+);

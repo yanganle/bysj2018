@@ -1,0 +1,1 @@
+"src\io.c" LARGE OMF2 OPTIMIZE (8,SPEED) BROWSE INCDIR(.\inc) DEBUG PRINT(.\Listings\io.lst) TABS (2) OBJECT(.\Objects\io.obj)

@@ -1,0 +1,12 @@
+".\Objects\mysys.obj",
+".\Objects\tasklist.obj",
+".\Objects\agreement.obj",
+".\Objects\io.obj",
+".\Objects\delay.obj",
+".\Objects\uart.obj",
+".\Objects\main.obj",
+".\Objects\DHT11.obj",
+".\Objects\LCD12864.obj" 
+TO ".\Objects\samartAgr" 
+
+PRINT(".\Listings\samartAgr.map")
