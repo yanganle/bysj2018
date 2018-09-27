@@ -1,0 +1,10 @@
+bysj2018д©б╪об
+
+git add -A
+
+git commit -m "2018.09.27 company"
+
+git push -u origin master
+
+
+git clone https://github.com/yanganle/bysj2018
