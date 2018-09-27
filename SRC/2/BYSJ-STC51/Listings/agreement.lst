@@ -1,0 +1,80 @@
+C51 COMPILER V9.56.0.0   AGREEMENT                                                         09/27/2018 18:17:14 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE AGREEMENT
+OBJECT MODULE PLACED IN .\Objects\agreement.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE src\agreement.c LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE INCDIR(.\inc) DEBUG 
+                    -PRINT(.\Listings\agreement.lst) TABS(2) OBJECT(.\Objects\agreement.obj)
+
+line level    source
+
+   1          #include "agreement.h"
+   2          #include "uart.h"
+   3          #include "uart2.h"
+   4          #include "io.h"
+   5          
+   6          u8 SMARTMODE = 0;
+   7          u8 watl_threshold = 5;
+   8          
+   9          sysData DataBuf = {DATA_HEADH, DATA_HEADL, 0, 0, 0, 0, CMDID_UP, 0, 0, 0, 0, 0, 0, DATA_END};
+  10          
+  11          void Send_SensorData(u8 _SensorType, u8 _SenserIndex, u8 *_pData)
+  12          {
+  13   1        DataBuf.dataDet.sIndex    = _SenserIndex;
+  14   1        DataBuf.dataDet.sValue[0] = _pData[0];
+  15   1        DataBuf.dataDet.sValue[1] = _pData[1];
+  16   1        DataBuf.dataDet.sValue[2] = _pData[2];
+  17   1        DataBuf.dataDet.sValue[3] = _pData[3];
+  18   1        DataBuf.dataDet.sType     = _SensorType;
+  19   1        
+  20   1        uartSendData(DataBuf.dataArry, DATA_LENGTH);
+  21   1      }
+  22          
+  23          void agreementParse(u8 *str)
+  24          {
+  25   1        if(str[0] == DATA_HEADH && str[1] == DATA_HEADL && str[13] == DATA_END)
+  26   1        {
+  27   2          if(str[9] == CMDID_MODE) //设置模式
+  28   2          {
+  29   3            SMARTMODE = str[12];
+  30   3      
+  31   3            watl_threshold = str[11];
+  32   3          }
+  33   2          
+  34   2          if(str[9] == CMDID_DOWN) //下发控制指令
+  35   2          {
+  36   3            switch (str[8]) //不同传感器
+  37   3            {
+  38   4              case SENSOR_WATER_PUMP://报警设备
+  39   4                if(str[12])
+  40   4                  PUMP_ON();
+  41   4                else
+  42   4                  PUMP_ON();
+  43   4                break;
+  44   4              default:
+  45   4                break;
+  46   4            }
+  47   3          }
+  48   2        }
+  49   1      }
+  50          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    137    ----
+C51 COMPILER V9.56.0.0   AGREEMENT                                                         09/27/2018 18:17:14 PAGE 2   
+
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     16    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

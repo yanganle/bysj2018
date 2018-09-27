@@ -1,0 +1,89 @@
+C51 COMPILER V9.56.0.0   MYSYS                                                             09/27/2018 18:17:13 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE MYSYS
+OBJECT MODULE PLACED IN .\Objects\mysys.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE src\mysys.c LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE INCDIR(.\inc) DEBUG PRIN
+                    -T(.\Listings\mysys.lst) TABS(2) OBJECT(.\Objects\mysys.obj)
+
+line level    source
+
+   1          #include "mysys.h"
+   2          #include "uart.h"
+   3          #include "uart2.h"
+   4          
+   5          u32 heartBeat;
+   6          u8 flag_taskOne = 0;
+   7          u8 flag_taskTwo = 0;
+   8          u8 flag_taskThree = 0;
+   9          
+  10          void mysysinit()
+  11          {
+  12   1        TMOD &= 0xF0;
+  13   1        TMOD |= 0x01;    //设置为16位自动重装定时器，溢出值自动重装入TL0和TH0中
+  14   1        TH0=(65536-46080)/256; //50ms = 46080 进入中断
+  15   1        TL0=(65536-46080)%256;
+  16   1        TR0 = 1;        //定时器0的运行控制位
+  17   1        ET0 = 1;        //定时器0的中断允许控制位
+  18   1        EA = 1;         //打开总中断
+  19   1      }
+  20          
+  21          // 描述: timer0中断函数.50ms
+  22          // 中断时间太短会导致串口异常
+  23          void timer0(void) interrupt TIMER0_VECTOR
+  24          {
+  25   1        TH0=(65536-46080)/256;
+  26   1        TL0=(65536-46080)%256;
+  27   1        
+  28   1        if(heartBeat < 30000) heartBeat++;
+  29   1        else heartBeat = 0;
+  30   1      
+  31   1        if((heartBeat%20)==0)
+  32   1          flag_taskOne = 1;
+  33   1      
+  34   1        if(heartBeat%15 == 0)
+  35   1          flag_taskTwo = 1;
+  36   1        
+  37   1        if(heartBeat%30 == 0)
+  38   1          flag_taskThree = 1;
+  39   1        
+  40   1        //串口控制相关
+  41   1        if(flag_uart_rx) //uart1
+  42   1        {
+  43   2          if(uartRxTimeOut>0)uartRxTimeOut--;
+  44   2          else 
+  45   2          {
+  46   3            flag_uart_rx = 0;
+  47   3            uartRxSta = 1;
+  48   3          }
+  49   2        }
+  50   1        if(flag_uart2_rx) //uart2
+  51   1        {
+  52   2          if(uart2RxTimeOut>0)uart2RxTimeOut--;
+  53   2          else 
+  54   2          {
+C51 COMPILER V9.56.0.0   MYSYS                                                             09/27/2018 18:17:13 PAGE 2   
+
+  55   3            flag_uart2_rx = 0;
+  56   3            uart2RxSta = 1;
+  57   3          }
+  58   2        }
+  59   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    352    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      7    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

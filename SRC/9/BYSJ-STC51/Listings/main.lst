@@ -1,0 +1,128 @@
+C51 COMPILER V9.56.0.0   MAIN                                                              09/27/2018 10:11:53 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE src\main.c LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE INCDIR(.\inc) DEBUG PRINT
+                    -(.\Listings\main.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg52.h>  
+   2          #include <stdio.h>
+   3          #include "mysys.h"
+   4          #include "io.h"
+   5          #include "uart.h"
+   6          #include "uart2.h"
+   7          #include "tasklist.h"
+   8          #include "agreement.h"
+   9          #include "SIM800A.h"
+  10          #include "TFT_LCD.h"
+  11          
+  12          void bsp_init(void);
+  13          void display_background(void);
+  14          
+  15          u8 *mynumber = "00310038003100340031003900320031003600360031"; //目标号码
+  16          u8 *manmsg = "4EBA545862A58B66"; //人员报警
+  17          u8 *shakemsg = "970752A862A58B66"; //震动报警
+  18          
+  19          void main(void)
+  20          {
+  21   1        bsp_init();
+  22   1        while(1)
+  23   1        { 
+  24   2          if(flag_taskOne)
+  25   2          {
+  26   3            MyTask_One(); //任务一:人体检测
+  27   3            flag_taskOne=0;
+  28   3          }
+  29   2          if(flag_taskTwo)
+  30   2          {
+  31   3            MyTask_Two(); //任务二:震动检测
+  32   3            flag_taskTwo=0;
+  33   3          }
+  34   2      
+  35   2          if(SMARTMODE) //自动模式
+  36   2          {
+  37   3            if(uartRxSta)
+  38   3            {
+  39   4              agreementParse(UART_RX_BUF);
+  40   4              clearBuf();
+  41   4              uartRxSta = 0;
+  42   4              uartRxCount = 0;
+  43   4            }
+  44   3            if(IO_HUMAN) //人体检测报警
+  45   3            {
+  46   4              if(sendManMsgFlag)
+  47   4              {
+  48   5                if(sam800a_send_chmessage(mynumber, manmsg))
+  49   5                {
+  50   6                  sendManMsgFlag = 0;
+  51   6                  sendManMsgTout = 200; 
+  52   6                }
+  53   5              }
+  54   4              //BEEP_ON();
+C51 COMPILER V9.56.0.0   MAIN                                                              09/27/2018 10:11:53 PAGE 2   
+
+  55   4            }else if(IO_SHAKE) //震动报警
+  56   3            {
+  57   4              if(sendShkMsgFlag)
+  58   4              {
+  59   5                if(sam800a_send_chmessage(mynumber, shakemsg))
+  60   5                {
+  61   6                  sendShkMsgFlag = 0;
+  62   6                  sendShkMsgTout = 200; 
+  63   6                }
+  64   5              }
+  65   4              //BEEP_ON();
+  66   4            }else{
+  67   4            }
+  68   3          }else //手动模式
+  69   2          { 
+  70   3            if(uartRxSta)
+  71   3            {
+  72   4              //uartSendData(UART_RX_BUF, uartRxCount); //通过串口输出
+  73   4              agreementParse(UART_RX_BUF);
+  74   4              uartRxSta = 0;
+  75   4              uartRxCount = 0;
+  76   4            }
+  77   3          }
+  78   2        } 
+  79   1      }
+  80          
+  81          void bsp_init(void)
+  82          {
+  83   1        UartInit();
+  84   1        Uart2Init();
+  85   1        mysysinit();
+  86   1        lcd_initial();
+  87   1        display_background();
+  88   1        while(sim800a_work_init());
+  89   1      }
+  90          void display_background(void)
+  91          {
+  92   1        dsp_single_colour(WHITE);
+  93   1        Fast_DrawFont_GBK16(15,10,BLUE,WHITE, "车辆防盗系统");
+  94   1        Fast_DrawFont_GBK16(5,40,BLACK,WHITE, "人体:");
+  95   1        Fast_DrawFont_GBK16(5,80,BLACK,WHITE, "震动:");
+  96   1      }
+  97          
+  98          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    343    ----
+   CONSTANT SIZE    =    104    ----
+   XDATA SIZE       =      9    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

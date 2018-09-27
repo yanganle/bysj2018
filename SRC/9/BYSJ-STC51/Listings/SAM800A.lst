@@ -1,0 +1,106 @@
+C51 COMPILER V9.56.0.0   SAM800A                                                           09/23/2018 23:52:43 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE SAM800A
+OBJECT MODULE PLACED IN .\Objects\SAM800A.obj
+COMPILER INVOKED BY: D:\Program Files\Keil\C51\BIN\C51.EXE src\SAM800A.c LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE INCDIR(.\in
+                    -c) DEBUG PRINT(.\Listings\SAM800A.lst) TABS(2) OBJECT(.\Objects\SAM800A.obj)
+
+line level    source
+
+   1          #include "SAM800A.h"
+   2          #include "uart2.h"
+   3          #include "string.h"
+   4          #include "delay.h"
+   5          
+   6          u8 SIM900_CSQ[4];
+   7          
+   8          u8* sim900a_check_cmd(u8 *str)
+   9          {
+  10   1        char *strx=0;
+  11   1        if(uart2RxSta)
+  12   1        { 
+  13   2          strx=strstr((const char*)UART2_RX_BUF,(const char*)str);
+  14   2          uart2RxSta = 0;
+  15   2          uart2RxCount = 0;
+  16   2        } 
+  17   1        return (u8*)strx;
+  18   1      }
+  19          
+  20          u8 sim900a_send_cmd(u8 *cmd,u8 *ack,u16 waittime)
+  21          { 
+  22   1        u8 res=0;
+  23   1        
+  24   1        UART2_SendString(cmd);
+  25   1        if(ack&&waittime)   
+  26   1        {
+  27   2          while(--waittime) 
+  28   2          {
+  29   3            delay_ms(10);
+  30   3            if(uart2RxSta)
+  31   3            {
+  32   4              if(sim900a_check_cmd(ack))break; 
+  33   4            } 
+  34   3          }
+  35   2          if(waittime==0)res=1; 
+  36   2        }
+  37   1      
+  38   1        return res;
+  39   1      }
+  40          
+  41          u8 sim800a_work_init(void)
+  42          {
+  43   1        if(sim900a_send_cmd((u8 *)"AT\r\n",(u8 *)"OK",100))
+  44   1        {
+  45   2          if(sim900a_send_cmd((u8 *)"AT\r\n",(u8 *)"OK",100))return SIM_COMMUNTION_ERR; //通信不上
+  46   2        }   
+  47   1        if(sim900a_send_cmd((u8 *)"AT+CPIN?\r\n",(u8 *)"READY",400))return SIM_CPIN_ERR;  //没有SIM卡
+  48   1        if(sim900a_send_cmd((u8 *)"AT+CREG?\r\n",(u8 *)"0,1",400))
+  49   1        {
+  50   2          if(strstr((const char*)UART2_RX_BUF,"0,5")==NULL)
+  51   2          {
+  52   3             if(!sim900a_send_cmd((u8 *)"AT+CSQ\r\n",(u8 *)"OK",200)) 
+  53   3             {
+  54   4              memcpy(SIM900_CSQ,UART2_RX_BUF+15,2);
+C51 COMPILER V9.56.0.0   SAM800A                                                           09/23/2018 23:52:43 PAGE 2   
+
+  55   4             }
+  56   3             return SIM_CREG_FAIL;  //等待附着到网络
+  57   3          }
+  58   2        }
+  59   1        return SIM_OK;
+  60   1      }
+  61          
+  62          u8 sam800a_send_chmessage(u8 *number, u8 *content)
+  63          {
+  64   1        u8 cmd[30];
+  65   1        sprintf((char*)cmd,"AT+CMGS=\"%s\"\r\n",number);
+  66   1        if(sim900a_send_cmd((u8 *)"AT+CMGF=1\r\n",(u8 *)"OK",100))  return SIM_CMGF_ERR;
+  67   1        if(sim900a_send_cmd((u8 *)"AT+CSCS=\"UCS2\"\r\n",(u8 *)"OK",100)) return SIM_CSCS_ERR;
+  68   1        if(sim900a_send_cmd((u8 *)"AT+CSCA?\r\n",(u8 *)"OK",100)) return SIM_CSCA_ERR;
+  69   1        if(sim900a_send_cmd((u8 *)"AT+CSMP=17,167,0,24\r\n",(u8 *)"OK",100))  return SIM_CSMP_ERR;
+  70   1        if(sim900a_send_cmd(cmd,(u8 *)">",100)) return SIM_CMGS_ERR;
+  71   1        sim900a_send_cmd(content,"",0);
+  72   1        cmd[0]=0x1a;cmd[1]=0;
+  73   1        if(sim900a_send_cmd(cmd,(u8 *)"+CMGS:",1500)) return SIM_CMGS_SEND_FAIL;
+  74   1        return SIM_OK;
+  75   1      }
+  76          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    675    ----
+   CONSTANT SIZE    =    140    ----
+   XDATA SIZE       =      4      48
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

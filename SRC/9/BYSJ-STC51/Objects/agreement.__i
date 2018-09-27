@@ -1,0 +1,1 @@
+"src\agreement.c" LARGE OMF2 OPTIMIZE (8,SPEED) BROWSE INCDIR(.\inc) DEBUG PRINT(.\Listings\agreement.lst) TABS (2) OBJECT(.\Objects\agreement.obj)
