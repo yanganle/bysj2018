@@ -2,11 +2,12 @@
 #include "uart.h"
 #include "uart2.h"
 #include "io.h"
+#include "mysys.h"
 
 u8 SMARTMODE = 0;
 u8 watl_threshold = 5;
 
-sysData DataBuf = {DATA_HEADH, DATA_HEADL, 0, 0, 0, 0, CMDID_UP, 0, 0, 0, 0, 0, 0, DATA_END};
+sysData DataBuf = {DATA_HEADH, DATA_HEADL, 0, 0, 0, 0, 0, 0, 0, CMDID_UP, 0, 0, 0, 0, 0, 0, 0, DATA_END};
 
 void Send_SensorData(u8 _SensorType, u8 _SenserIndex, u8 *_pData)
 {
@@ -22,24 +23,23 @@ void Send_SensorData(u8 _SensorType, u8 _SenserIndex, u8 *_pData)
 
 void agreementParse(u8 *str)
 {
-	if(str[0] == DATA_HEADH && str[1] == DATA_HEADL && str[13] == DATA_END)
+	if(str[0] == DATA_HEADH && str[1] == DATA_HEADL && str[17] == DATA_END)
 	{
 		if(str[9] == CMDID_MODE) //设置模式
 		{
-			SMARTMODE = str[12];
+			SMARTMODE = str[16];
 
-			watl_threshold = str[11];
+			watl_threshold = str[15];
 		}
 		
 		if(str[9] == CMDID_DOWN) //下发控制指令
 		{
-			switch (str[8]) //不同传感器
+			switch (str[10]) //不同传感器
 			{
 				case SENSOR_WATER_PUMP://报警设备
-					if(str[12])
-						PUMP_ON();
-					else
-						PUMP_ON();
+					if(str[16]) PUMP_ON();
+					else PUMP_OFF();
+					flag_taskFour = 1;
 					break;
 				default:
 					break;

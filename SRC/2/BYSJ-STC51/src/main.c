@@ -32,13 +32,17 @@ void main(void)
 			MyTask_Three(); //任务三:PH值
 			flag_taskThree=0;
 		}
+		if(flag_taskFour)
+		{
+			MyTask_Four(); //任务四:水泵
+			flag_taskFour=0;
+		}
 
 		if(SMARTMODE) //自动模式
 		{
 			if(uartRxSta)
 			{
 				agreementParse(UART_RX_BUF);
-				clearBuf();
 				uartRxSta = 0;
 				uartRxCount = 0;
 			}
@@ -69,10 +73,11 @@ void bsp_init(void)
 void display_background(void)
 {
 	dsp_single_colour(WHITE);
-	Fast_DrawFont_GBK16(15,10,BLUE,WHITE, "水稻环境监测系统");
+	Fast_DrawFont_GBK16(15,10,BLUE,WHITE, "水稻监测系统");
 	Fast_DrawFont_GBK16(5,40,BLACK,WHITE, "温度:");
-	Fast_DrawFont_GBK16(5,80,BLACK,WHITE, "水位:");
-	Fast_DrawFont_GBK16(5,80,BLACK,WHITE, "水泵:");
+	Fast_DrawFont_GBK16(5,60,BLACK,WHITE, "水位:");
+	Display_ASCII8X16_Color(5,80,"PH",BLACK,WHITE); 
+	Fast_DrawFont_GBK16(5,100,BLACK,WHITE, "水泵:");
 }
 
 

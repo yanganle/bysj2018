@@ -1,0 +1,356 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         05/Sep/2018  17:54:27 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  E:\AnleYang\selfwork\ZigBeePro\Projects\zstack\Sam #
+#                          ples\SampleApp\Source\adc_sensor.c                 #
+#    Command line       =  -f E:\AnleYang\selfwork\ZigBeePro\Projects\zstack\ #
+#                          Samples\SampleApp\CC2530DB\..\..\..\Tools\CC2530DB #
+#                          \f8wEndev.cfg (-DCPU32MHZ -DROOT=__near_func       #
+#                          -DMAC_CFG_TX_DATA_MAX=3 -DMAC_CFG_TX_MAX=6         #
+#                          -DMAC_CFG_RX_MAX=3) -f E:\AnleYang\selfwork\ZigBee #
+#                          Pro\Projects\zstack\Samples\SampleApp\CC2530DB\..\ #
+#                          ..\..\Tools\CC2530DB\f8wConfig.cfg (-DZIGBEEPRO    #
+#                          -DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR       #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0x1234                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 E:\AnleYang\selfwork\ZigBee #
+#                          Pro\Projects\zstack\Samples\SampleApp\Source\adc_s #
+#                          ensor.c -D NWK_AUTO_POLL -D ZTOOL_P1 -D MT_TASK    #
+#                          -D MT_SYS_FUNC -D MT_ZDO_FUNC -D                   #
+#                          LCD_SUPPORTED=DEBUG -lC E:\AnleYang\selfwork\ZigBe #
+#                          ePro\Projects\zstack\Samples\SampleApp\CC2530DB\En #
+#                          dDeviceEB\List\ -lA E:\AnleYang\selfwork\ZigBeePro #
+#                          \Projects\zstack\Samples\SampleApp\CC2530DB\EndDev #
+#                          iceEB\List\ --diag_suppress Pe001,Pa010 -o         #
+#                          E:\AnleYang\selfwork\ZigBeePro\Projects\zstack\Sam #
+#                          ples\SampleApp\CC2530DB\EndDeviceEB\Obj\ -e        #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I E:\AnleYang\selfwork\ZigBeePro\Projects\zstack\ #
+#                          Samples\SampleApp\CC2530DB\ -I                     #
+#                          E:\AnleYang\selfwork\ZigBeePro\Projects\zstack\Sam #
+#                          ples\SampleApp\CC2530DB\..\Source\ -I              #
+#                          E:\AnleYang\selfwork\ZigBeePro\Projects\zstack\Sam #
+#                          ples\SampleApp\CC2530DB\..\..\..\ZMain\TI2530DB\   #
+#                          -I E:\AnleYang\selfwork\ZigBeePro\Projects\zstack\ #
+#                          Samples\SampleApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\hal\include\ -I E:\AnleYang\selfwork\ZigBeePro\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\hal\target\CC2530EB\ -I         #
+#                          E:\AnleYang\selfwork\ZigBeePro\Projects\zstack\Sam #
+#                          ples\SampleApp\CC2530DB\..\..\..\..\..\Components\ #
+#                          mac\include\ -I E:\AnleYang\selfwork\ZigBeePro\Pro #
+#                          jects\zstack\Samples\SampleApp\CC2530DB\..\..\..\. #
+#                          .\..\Components\mac\high_level\ -I                 #
+#                          E:\AnleYang\selfwork\ZigBeePro\Projects\zstack\Sam #
+#                          ples\SampleApp\CC2530DB\..\..\..\..\..\Components\ #
+#                          mac\low_level\srf04\ -I E:\AnleYang\selfwork\ZigBe #
+#                          ePro\Projects\zstack\Samples\SampleApp\CC2530DB\.. #
+#                          \..\..\..\..\Components\mac\low_level\srf04\single #
+#                          _chip\ -I E:\AnleYang\selfwork\ZigBeePro\Projects\ #
+#                          zstack\Samples\SampleApp\CC2530DB\..\..\..\..\..\C #
+#                          omponents\mt\ -I E:\AnleYang\selfwork\ZigBeePro\Pr #
+#                          ojects\zstack\Samples\SampleApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\osal\include\ -I                  #
+#                          E:\AnleYang\selfwork\ZigBeePro\Projects\zstack\Sam #
+#                          ples\SampleApp\CC2530DB\..\..\..\..\..\Components\ #
+#                          services\saddr\ -I E:\AnleYang\selfwork\ZigBeePro\ #
+#                          Projects\zstack\Samples\SampleApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\services\sdata\ -I              #
+#                          E:\AnleYang\selfwork\ZigBeePro\Projects\zstack\Sam #
+#                          ples\SampleApp\CC2530DB\..\..\..\..\..\Components\ #
+#                          stack\af\ -I E:\AnleYang\selfwork\ZigBeePro\Projec #
+#                          ts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\. #
+#                          .\Components\stack\nwk\ -I                         #
+#                          E:\AnleYang\selfwork\ZigBeePro\Projects\zstack\Sam #
+#                          ples\SampleApp\CC2530DB\..\..\..\..\..\Components\ #
+#                          stack\sapi\ -I E:\AnleYang\selfwork\ZigBeePro\Proj #
+#                          ects\zstack\Samples\SampleApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\stack\sec\ -I                       #
+#                          E:\AnleYang\selfwork\ZigBeePro\Projects\zstack\Sam #
+#                          ples\SampleApp\CC2530DB\..\..\..\..\..\Components\ #
+#                          stack\sys\ -I E:\AnleYang\selfwork\ZigBeePro\Proje #
+#                          cts\zstack\Samples\SampleApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\stack\zdo\ -I                        #
+#                          E:\AnleYang\selfwork\ZigBeePro\Projects\zstack\Sam #
+#                          ples\SampleApp\CC2530DB\..\..\..\..\..\Components\ #
+#                          zmac\ -I E:\AnleYang\selfwork\ZigBeePro\Projects\z #
+#                          stack\Samples\SampleApp\CC2530DB\..\..\..\..\..\Co #
+#                          mponents\zmac\f8w\ -Ohz --require_prototypes       #
+#    List file          =  E:\AnleYang\selfwork\ZigBeePro\Projects\zstack\Sam #
+#                          ples\SampleApp\CC2530DB\EndDeviceEB\List\adc_senso #
+#                          r.lst                                              #
+#    Object file        =  E:\AnleYang\selfwork\ZigBeePro\Projects\zstack\Sam #
+#                          ples\SampleApp\CC2530DB\EndDeviceEB\Obj\adc_sensor #
+#                          .r51                                               #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+E:\AnleYang\selfwork\ZigBeePro\Projects\zstack\Samples\SampleApp\Source\adc_sensor.c
+      1          #include <ioCC2530.h>
+
+   \                                 In  segment SFR_AN, at 0xb4
+   \   unsigned char volatile __sfr ADCCON1
+   \                     ADCCON1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xb6
+   \   unsigned char volatile __sfr ADCCON3
+   \                     ADCCON3:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xba
+   \   unsigned char volatile __sfr ADCL
+   \                     ADCL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xbb
+   \   unsigned char volatile __sfr ADCH
+   \                     ADCH:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf2
+   \   unsigned char volatile __sfr ADCCFG
+   \                     ADCCFG:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfd
+   \   unsigned char volatile __sfr P0DIR
+   \                     P0DIR:
+   \   000000                DS 1
+      2          #include "hal_adc.h"
+      3          #include "hal_types.h"
+      4          #include "adc_sensor.h"
+      5          #include "adc.h"
+      6          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+      7          float getVol(void)
+   \                     getVol:
+      8          {
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+      9            unsigned char i = 0;
+     10            uint16 value = 0;
+     11            uint32 AdcValue = 0;//防止溢出
+   \   000005   90....       MOV     DPTR,#__Constant_0
+   \   000008   78..         MOV     R0,#?V0 + 4
+   \   00000A   12....       LCALL   ?L_MOV_X
+     12            float vol = 0.0;
+     13            P0DIR &= ~0x40;//设置P0.6为输入模式
+   \   00000D   53FDBF       ANL     0xfd,#0xbf
+     14            ADC_ENABLE_CHANNEL(6);    //使能通道6作为ADC的采样通道
+   \   000010   43F240       ORL     0xf2,#0x40
+     15            for(i=0; i<4; i++)
+   \   000013   7C04         MOV     R4,#0x4
+     16            {
+     17              ADC_SINGLE_CONVERSION(HAL_ADC_REF_AVDD|ADC_12_BIT|ADC_AIN6 );//片上3.3V参考电压,12位，7通道
+   \                     ??getVol_0:
+   \   000015   75B6B6       MOV     0xb6,#-0x4a
+     18              ADC_SAMPLE_SINGLE(); 
+   \   000018   43B430       ORL     0xb4,#0x30
+   \   00001B   43B440       ORL     0xb4,#0x40
+     19              while(!(ADCCON1 & 0x40));              //等待AD转换完成
+   \                     ??getVol_1:
+   \   00001E   E5B4         MOV     A,0xb4
+   \   000020   A2E6         MOV     C,0xE0 /* A   */.6
+   \   000022   50FA         JNC     ??getVol_1
+     20              asm("NOP");asm("NOP");
+   \   000024   00           NOP
+   \   000025   00           NOP
+     21              value = ADCL>>4;                      
+   \   000026   E5BA         MOV     A,0xba
+     22              value |= (((uint8)ADCH) << 4);
+     23              AdcValue += value;  
+   \   000028   C4           SWAP    A
+   \   000029   540F         ANL     A,#0xf
+   \   00002B   FA           MOV     R2,A
+   \   00002C   85BB..       MOV     ?V0 + 0,0xbb
+   \   00002F   75..00       MOV     ?V0 + 1,#0x0
+   \   000032   7404         MOV     A,#0x4
+   \   000034   78..         MOV     R0,#?V0 + 0
+   \   000036   12....       LCALL   ?S_SHL
+   \   000039   EA           MOV     A,R2
+   \   00003A   45..         ORL     A,?V0 + 0
+   \   00003C   F5..         MOV     ?V0 + 0,A
+   \   00003E   E4           CLR     A
+   \   00003F   F5..         MOV     ?V0 + 2,A
+   \   000041   F5..         MOV     ?V0 + 3,A
+   \   000043   78..         MOV     R0,#?V0 + 4
+   \   000045   79..         MOV     R1,#?V0 + 0
+   \   000047   12....       LCALL   ?L_ADD
+     24            }
+   \   00004A   1C           DEC     R4
+   \   00004B   EC           MOV     A,R4
+   \   00004C   70C7         JNZ     ??getVol_0
+     25            AdcValue = AdcValue >> 2;                 //累加除以4，得到平均值
+     26            vol = (AdcValue/2048.0)*3.3;  //换算成电压值
+     27            return vol;
+   \   00004E   7402         MOV     A,#0x2
+   \   000050   78..         MOV     R0,#?V0 + 4
+   \   000052   12....       LCALL   ?UL_SHR
+   \   000055   78..         MOV     R0,#?V0 + 4
+   \   000057   12....       LCALL   ?UL_TO_FLT
+   \   00005A   90....       MOV     DPTR,#__Constant_3a000000
+   \   00005D   78..         MOV     R0,#?V0 + 0
+   \   00005F   12....       LCALL   ?L_MOV_X
+   \   000062   78..         MOV     R0,#?V0 + 4
+   \   000064   79..         MOV     R1,#?V0 + 0
+   \   000066   12....       LCALL   ?FLT_MUL
+   \   000069   90....       MOV     DPTR,#__Constant_40533333
+   \   00006C   78..         MOV     R0,#?V0 + 0
+   \   00006E   12....       LCALL   ?L_MOV_X
+   \   000071   78..         MOV     R0,#?V0 + 4
+   \   000073   79..         MOV     R1,#?V0 + 0
+   \   000075   12....       LCALL   ?FLT_MUL
+   \   000078   AA..         MOV     R2,?V0 + 4
+   \   00007A   AB..         MOV     R3,?V0 + 5
+   \   00007C   AC..         MOV     R4,?V0 + 6
+   \   00007E   AD..         MOV     R5,?V0 + 7
+   \   000080                REQUIRE ?Subroutine0
+   \   000080                REQUIRE P0DIR
+   \   000080                REQUIRE ADCCFG
+   \   000080                REQUIRE ADCCON3
+   \   000080                REQUIRE ADCCON1
+   \   000080                REQUIRE ADCL
+   \   000080                REQUIRE ADCH
+   \   000080                ; // Fall through to label ?Subroutine0
+     28          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7F08         MOV     R7,#0x8
+   \   000002   02....       LJMP    ?BANKED_LEAVE_XDATA
+     29          
+     30          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     31          uint16 ReadGasData( void )
+   \                     ReadGasData:
+     32          {
+   \   000000   74F0         MOV     A,#-0x10
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 16
+   \   000005                ; Auto size: 0
+     33            uint16 reading = 0;
+     34            reading = (uint16)(getVol()*1000); //放大了一千倍
+     35            
+     36            return reading;
+   \   000005                ; Setup parameters for call to function getVol
+   \   000005   12....       LCALL   ??getVol?relay
+   \   000008   8A..         MOV     ?V0 + 0,R2
+   \   00000A   8B..         MOV     ?V0 + 1,R3
+   \   00000C   8C..         MOV     ?V0 + 2,R4
+   \   00000E   8D..         MOV     ?V0 + 3,R5
+   \   000010   90....       MOV     DPTR,#__Constant_447a0000
+   \   000013   78..         MOV     R0,#?V0 + 4
+   \   000015   12....       LCALL   ?L_MOV_X
+   \   000018   78..         MOV     R0,#?V0 + 0
+   \   00001A   79..         MOV     R1,#?V0 + 4
+   \   00001C   12....       LCALL   ?FLT_MUL
+   \   00001F   78..         MOV     R0,#?V0 + 0
+   \   000021   12....       LCALL   ?FLT_TO_L
+   \   000024   AA..         MOV     R2,?V0 + 0
+   \   000026   AB..         MOV     R3,?V0 + 1
+   \   000028   80..         SJMP    ?Subroutine0
+     37          }
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_0:
+   \   000000   00000000     DD 0
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3a000000:
+   \   000000   0000003A     DD 3A000000H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_40533333:
+   \   000000   33335340     DD 40533333H
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_447a0000:
+   \   000000   00007A44     DD 447A0000H
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??getVol?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    getVol
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??ReadGasData?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    ReadGasData
+
+   Maximum stack usage in bytes:
+
+     Function    ISTACK PSTACK XSTACK
+     --------    ------ ------ ------
+     ReadGasData     0      0     16
+       -> getVol     0      0     32
+     getVol          0      0     32
+
+
+   Segment part sizes:
+
+     Function/Label      Bytes
+     --------------      -----
+     ADCCON1                1
+     ADCCON3                1
+     ADCL                   1
+     ADCH                   1
+     ADCCFG                 1
+     P0DIR                  1
+     getVol               128
+     ?Subroutine0           5
+     ReadGasData           42
+     __Constant_0           4
+     __Constant_3a000000    4
+     __Constant_40533333    4
+     __Constant_447a0000    4
+     ??getVol?relay         6
+     ??ReadGasData?relay    6
+
+ 
+ 175 bytes in segment BANKED_CODE
+  12 bytes in segment BANK_RELAYS
+   6 bytes in segment SFR_AN
+  16 bytes in segment XDATA_ROM_C
+ 
+ 187 bytes of CODE  memory
+   0 bytes of CONST memory (+ 16 bytes shared)
+   0 bytes of DATA  memory (+  6 bytes shared)
+
+Errors: none
+Warnings: none

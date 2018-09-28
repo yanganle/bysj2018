@@ -227,6 +227,7 @@ uint16 SampleApp_ProcessEvent( uint8 task_id, uint16 events )
   (void)task_id;  // Intentionally unreferenced parameter
   
   uint8 sdata[4] = {0};
+  uint16 gasvalue = 0;
   
   if ( events & SYS_EVENT_MSG )
   {

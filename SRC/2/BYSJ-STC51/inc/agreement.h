@@ -1,7 +1,7 @@
 #include <reg52.h>
 #include <stdio.h>
 
-#define DATA_LENGTH 	            14
+#define DATA_LENGTH 	            18
 
 //命令ID
 #define CMDID_UP									0x6A
@@ -35,10 +35,14 @@ typedef union {
 	struct {	
 		u8 HeadH; //包头
 		u8 HeadL; //包头
-		u8 Addr[4]; //网络短地址
+		u8 NetID;
+		u8 Addr[4];//网络短地址
+		u8 Channel;
+		u8 NetPort;
 		u8 CmdID; //数据命令ID
 		u8 sType; //传感器类型
 		u8 sIndex; //传感器类型
+		u8 sPosition;
 		u8 sValue[4];//传感器数据
 		u8 dataEnd;//结束符
 	}dataDet;

@@ -239,7 +239,7 @@
            </rect>
           </property>
           <property name="text">
-           <string/>
+           <string>离线</string>
           </property>
          </widget>
          <widget class="QWidget" name="layoutWidget">
@@ -331,7 +331,7 @@
            </rect>
           </property>
           <property name="text">
-           <string/>
+           <string>离线</string>
           </property>
          </widget>
          <widget class="QWidget" name="layoutWidget">

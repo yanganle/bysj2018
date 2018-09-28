@@ -351,6 +351,7 @@ void homeForm::runingSmartModel(QByteArray sensorData)
             //qDebug()<<sensorStr.setNum(tempData);
             ui->tempNumber->display(sensorStr.setNum(tempData));
             ui->tempStatelabel->setText(QString::fromLocal8Bit("在线"));
+            emit tempcheck(tempData);
             if(tempData > tempThresholdValue)
             {
                 //打开风扇
@@ -364,7 +365,7 @@ void homeForm::runingSmartModel(QByteArray sensorData)
             //qDebug()<<sensorStr.setNum(tempData);
             ui->humiNumber->display(sensorStr.setNum(tempData));
             ui->humiStatelabel->setText(QString::fromLocal8Bit("在线"));
-
+            emit humicheck(tempData);
             if(tempData > humiThresholdValue)
             {
 
@@ -408,11 +409,13 @@ void homeForm::runingSmartModel(QByteArray sensorData)
             {
                 QPixmap lamppixmap_on(":/rcs/lampcheck_on.png");
                 ui->lamppixlabel->setPixmap(lamppixmap_on);
+                emit lightcheck(true);
             }
             else
             {
                 QPixmap lamppixmap_off(":/rcs/lampcheck_off.png");
                 ui->lamppixlabel->setPixmap(lamppixmap_off);
+                emit lightcheck(false);
             }
             break;
        default:

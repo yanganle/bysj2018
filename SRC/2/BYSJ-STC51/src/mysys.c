@@ -6,6 +6,7 @@ u32 heartBeat;
 u8 flag_taskOne = 0;
 u8 flag_taskTwo = 0;
 u8 flag_taskThree = 0;
+u8 flag_taskFour = 0;
 
 void mysysinit()
 {
@@ -28,14 +29,10 @@ void timer0(void) interrupt TIMER0_VECTOR
 	if(heartBeat < 30000) heartBeat++;
 	else heartBeat = 0;
 
-	if((heartBeat%20)==0)
-		flag_taskOne = 1;
-
-  if(heartBeat%15 == 0)
-		flag_taskTwo = 1;
-	
-	if(heartBeat%30 == 0)
-		flag_taskThree = 1;
+	if((heartBeat%40)==0)flag_taskOne = 1;
+  if(heartBeat%30 == 0)flag_taskTwo = 1;
+	if(heartBeat%60 == 0)flag_taskThree = 1;
+	if(heartBeat%80 == 0)flag_taskFour = 1;
 	
 	//串口控制相关
 	if(flag_uart_rx) //uart1
