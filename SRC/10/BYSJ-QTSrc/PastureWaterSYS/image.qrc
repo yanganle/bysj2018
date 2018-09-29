@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/">
+        <file>rcs/back.png</file>
+        <file>rcs/declaration.png</file>
+        <file>rcs/homeButton.png</file>
+        <file>rcs/mainpage.jpg</file>
+        <file>rcs/mancheck_0.png</file>
+        <file>rcs/mancheck_1.png</file>
+        <file>rcs/message.png</file>
+        <file>rcs/setButton.png</file>
+        <file>rcs/smokecheck_0.png</file>
+        <file>rcs/smokecheck_1.png</file>
+        <file>rcs/tempcheck_0.png</file>
+        <file>rcs/tempcheck_1.png</file>
+        <file>rcs/widgetButton.png</file>
+        <file>rcs/logo.jpg</file>
+        <file>rcs/setbackground.jpg</file>
+        <file>rcs/home.jpg</file>
+        <file>rcs/lampcheck_off.png</file>
+        <file>rcs/lampcheck_on.png</file>
+        <file>rcs/fan_move.gif</file>
+        <file>rcs/fancheck_off.png</file>
+        <file>rcs/fancheck_on.png</file>
+        <file>rcs/light_bright.png</file>
+        <file>rcs/light_dark.png</file>
+    </qresource>
+</RCC>

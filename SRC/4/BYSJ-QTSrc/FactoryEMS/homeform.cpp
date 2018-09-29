@@ -80,11 +80,13 @@ void homeForm::updataValue(QByteArray sensorData)
                 QPixmap lightpixmap_bright(":/rcs/light_bright.png");
                 ui->lightpixlabel->setPixmap(lightpixmap_bright);
                 ui->lightvaluelabel->setText(QString::fromLocal8Bit("强光"));
+				emit lightcheck(true);
             }else
             {
                 QPixmap lightpixmap_dark(":/rcs/light_dark.png");
                 ui->lightpixlabel->setPixmap(lightpixmap_dark);
                 ui->lightvaluelabel->setText(QString::fromLocal8Bit("弱光"));
+				emit lightcheck(false);
             }
             break;
         case DEVICE_HT11: //温湿度
@@ -130,13 +132,13 @@ void homeForm::updataValue(QByteArray sensorData)
             {
                 QPixmap lamppixmap_on(":/rcs/lampcheck_on.png");
                 ui->lamppixlabel->setPixmap(lamppixmap_on);
-                emit lightcheck(true);
+
             }
             else
             {
                 QPixmap lamppixmap_off(":/rcs/lampcheck_off.png");
                 ui->lamppixlabel->setPixmap(lamppixmap_off);
-                emit lightcheck(false);
+
             }
             break;
        default:
@@ -328,11 +330,13 @@ void homeForm::runingSmartModel(QByteArray sensorData)
                 QPixmap lightpixmap_bright(":/rcs/light_bright.png");
                 ui->lightpixlabel->setPixmap(lightpixmap_bright);
                 ui->lightvaluelabel->setText(QString::fromLocal8Bit("强光"));
+				emit lightcheck(true);
             }else
             {
                 QPixmap lightpixmap_dark(":/rcs/light_dark.png");
                 ui->lightpixlabel->setPixmap(lightpixmap_dark);
                 ui->lightvaluelabel->setText(QString::fromLocal8Bit("弱光"));
+				emit lightcheck(false);
             }
 
             if(tempData) //强光
@@ -409,13 +413,11 @@ void homeForm::runingSmartModel(QByteArray sensorData)
             {
                 QPixmap lamppixmap_on(":/rcs/lampcheck_on.png");
                 ui->lamppixlabel->setPixmap(lamppixmap_on);
-                emit lightcheck(true);
             }
             else
             {
                 QPixmap lamppixmap_off(":/rcs/lampcheck_off.png");
                 ui->lamppixlabel->setPixmap(lamppixmap_off);
-                emit lightcheck(false);
             }
             break;
        default:
