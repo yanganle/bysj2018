@@ -10,5 +10,6 @@ void MyTask_One(void);
 void MyTask_Two(void);
 void MyTask_Three(void);
 void MyTask_Four(void);
+void MyTask_Five(void);
 
 #endif

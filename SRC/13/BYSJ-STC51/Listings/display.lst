@@ -1,0 +1,170 @@
+C51 COMPILER V9.56.0.0   DISPLAY                                                           09/05/2018 22:51:29 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE DISPLAY
+OBJECT MODULE PLACED IN .\Objects\display.obj
+COMPILER INVOKED BY: D:\Program Files\Keil\C51\BIN\C51.EXE src\display.c LARGE OMF2 OPTIMIZE(8,SPEED) BROWSE INCDIR(.\in
+                    -c) DEBUG PRINT(.\Listings\display.lst) TABS(2) OBJECT(.\Objects\display.obj)
+
+line level    source
+
+   1          
+   2          
+   3          /******************************
+   4          ** @time ：2017/11/6 15:20:56 
+   5          ** @Author: mantisAlone
+   6          ** @email: gxd@cyb-bot.com
+   7          ** @brief: 室内温度采集显示
+   8          *******************************/ 
+   9          
+  10          #include "display.h"
+  11          #include "config.h"
+  12          #include "dgus.h"
+  13          
+  14          
+  15          void display_float(unsigned char addr,float temp)
+  16          {
+  17   1        unsigned short sentValue;
+  18   1        sentValue = (int)(temp*10);
+  19   1        dgusWriteVar(addr,sentValue);
+  20   1      }
+  21          
+  22          void display_ushort (unsigned char addr,unsigned short value)
+  23          {
+  24   1        dgusWriteVar(addr,value);
+  25   1      }
+  26          
+  27          
+  28          void display_temp (float temp)
+  29          { 
+  30   1         display_float(TEMP_ADDR_DISPLAY,temp);
+  31   1      }
+  32          
+  33          void display_humi (float humi)
+  34          {
+  35   1        display_float(HUMI_ADDR_DISPLAY,humi);
+  36   1      }
+  37          
+  38          void display_pm (float dust)
+  39          {
+  40   1        display_float(DUST_ADDR_DISPLAY,dust);
+  41   1      }
+  42          
+  43          void display_smoke (float smoke)
+  44          {
+  45   1        display_float(SMOKE_ADDR_DISPLAY,smoke);
+  46   1      }
+  47          
+  48          void display_light (float light)
+  49          {
+  50   1        display_float(LIGHT_ADDR_DISPLAY,light);
+  51   1      }
+  52          
+  53          
+  54          void display_relay(unsigned char staus)
+C51 COMPILER V9.56.0.0   DISPLAY                                                           09/05/2018 22:51:29 PAGE 2   
+
+  55          {
+  56   1        display_ushort(RELAY_ADDR_DISPLAY,staus);
+  57   1      }
+  58          
+  59          void display_fan_speed(unsigned int speed)
+  60          {
+  61   1        display_ushort(FAN_ADDR_DISPLAY,speed);
+  62   1      }
+  63          
+  64          void display_mode (unsigned char mode)
+  65          {
+  66   1        display_ushort(MODE_ADDR_DISPLAY,mode);
+  67   1      }
+  68          
+  69          void display_interface(unsigned short interfanceNum)
+  70          {
+  71   1        dgusWrite(REG_ADDR_INTERFACE,interfanceNum);
+  72   1      }
+  73          
+  74          void display_shake (float shake)
+  75          {
+  76   1        display_float(SHAKE_ADDR_DISPLAY,shake);
+  77   1      }
+  78          
+  79          void display_distance(float distance)
+  80          {
+  81   1        display_float(DISTANCE_ADDR_DISPLAY,distance);
+  82   1      }
+  83          
+  84          void display_CO2(float co2)
+  85          {
+  86   1        display_float(CO2_ADDR_DISPLAY,co2);
+  87   1      }
+  88          
+  89          void display_alarm(unsigned char alarm)
+  90          {
+  91   1        display_ushort(ALARM_ADDR_DISPLAY,alarm);
+  92   1      }
+  93          
+  94          void display_mpu9960(float ax,float ay,float az,float wx,float wy,float wz,float max,float may,float maz,f
+             -loat temp)
+  95          {
+  96   1        display_float(MPU9960_ADDR_AX_DISPLAY,ax);
+  97   1        display_float(MPU9960_ADDR_AY_DISPLAY,ay);
+  98   1        display_float(MPU9960_ADDR_AZ_DISPLAY,az);
+  99   1        display_float(MPU9960_ADDR_WX_DISPLAY,wx);
+ 100   1        display_float(MPU9960_ADDR_WY_DISPLAY,wy);
+ 101   1        display_float(MPU9960_ADDR_WZ_DISPLAY,wz);
+ 102   1        display_float(MPU9960_ADDR_MAX_DISPLAY,max);
+ 103   1        display_float(MPU9960_ADDR_MAY_DISPLAY,may);
+ 104   1        display_float(MPU9960_ADDR_MAZ_DISPLAY,maz);
+ 105   1        display_float(MPU9960_ADDR_TEMP_DISPLAY,temp);
+ 106   1      }
+ 107          
+ 108          void display_gestrue(unsigned char num)
+ 109          {
+ 110   1        display_ushort(GESTYRE_ADDR_DISPLAY,num);
+ 111   1      }
+ 112          
+ 113          void display_battery(unsigned char bat)
+ 114          {
+ 115   1        display_ushort(BATTERY_ADDR_DISPLAY,bat);
+C51 COMPILER V9.56.0.0   DISPLAY                                                           09/05/2018 22:51:29 PAGE 3   
+
+ 116   1      }
+ 117          
+ 118          void display_led(unsigned char rl,unsigned char yl,unsigned char gl)
+ 119          {
+ 120   1        display_ushort(LED_RED_ADDR_DISPLAY,rl);
+ 121   1        display_ushort(LED_YELLOW_ADDR_DISPLAY,yl);
+ 122   1        display_ushort(LED_GREEN_ADDR_DISPLAY,gl);
+ 123   1      }
+ 124          
+ 125          void display_finger(unsigned char status)
+ 126          {
+ 127   1        display_ushort(FINGER_ADDR_DISPLAY,status);
+ 128   1      }
+ 129          
+ 130          void display_communication(unsigned char status)
+ 131          {
+ 132   1        display_ushort(COMMUNICATION_ADDR_DISPLAY,status);
+ 133   1      }
+ 134          void display_carsh(unsigned char status)
+ 135          {
+ 136   1        display_ushort(CARSH_ADDR_DISPLAY,status);
+ 137   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    684    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----      79
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

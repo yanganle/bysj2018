@@ -1,4 +1,4 @@
-C51 COMPILER V9.56.0.0   MAIN                                                              09/28/2018 16:53:01 PAGE 1   
+C51 COMPILER V9.56.0.0   MAIN                                                              10/09/2018 10:46:17 PAGE 1   
 
 
 C51 COMPILER V9.56.0.0, COMPILATION OF MODULE MAIN
@@ -62,7 +62,7 @@ line level    source
   52   2          { 
   53   3            if(uartRxSta)
   54   3            {
-C51 COMPILER V9.56.0.0   MAIN                                                              09/28/2018 16:53:01 PAGE 2   
+C51 COMPILER V9.56.0.0   MAIN                                                              10/09/2018 10:46:17 PAGE 2   
 
   55   4              //uartSendData(UART_RX_BUF, uartRxCount); //通过串口输出
   56   4              agreementParse(UART_RX_BUF);

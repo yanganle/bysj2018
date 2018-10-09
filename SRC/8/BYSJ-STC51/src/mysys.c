@@ -7,6 +7,7 @@ u8 flag_taskOne = 0;
 u8 flag_taskTwo = 0;
 u8 flag_taskThree = 0;
 u8 flag_taskFour = 0;
+u8 flag_taskFive = 0;
 
 void mysysinit()
 {
@@ -33,6 +34,7 @@ void timer0(void) interrupt TIMER0_VECTOR
   if(heartBeat%30 == 0)flag_taskTwo = 1;
 	if(heartBeat%80 == 0)flag_taskThree = 1;
 	if(heartBeat%100 == 0)flag_taskFour = 1;
+	if(heartBeat%400 == 0)flag_taskFive = 1;
 	
 	//串口控制相关
 	if(flag_uart_rx) //uart1

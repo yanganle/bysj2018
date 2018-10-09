@@ -105,12 +105,12 @@ void homeForm::updataValue(QByteArray sensorData)
             ui->pumpStatelabel->setText(QString::fromLocal8Bit("在线"));
             if((quint8)sensorData[7] == 0x01)
             {
-                QPixmap pumppixmap_on(":/rcs/fancheck_on.png");
+                QPixmap pumppixmap_on(":/rcs/pump_on.png");
                 ui->pumppixlabel->setPixmap(pumppixmap_on);
             }
             else
             {
-                QPixmap pumppixmap_off(":/rcs/fancheck_off.png");
+                QPixmap pumppixmap_off(":/rcs/pump_off.png");
                 ui->pumppixlabel->setPixmap(pumppixmap_off);
             }
             break;
@@ -118,13 +118,13 @@ void homeForm::updataValue(QByteArray sensorData)
             ui->lampStatelabel->setText(QString::fromLocal8Bit("在线"));
             if((quint8)sensorData[7] == 0x01)
             {
-                QPixmap lamppixmap_on(":/rcs/lampcheck_on.png");
+                QPixmap lamppixmap_on(":/rcs/lamp_on.png");
                 ui->lamppixlabel->setPixmap(lamppixmap_on);
 
             }
             else
             {
-                QPixmap lamppixmap_off(":/rcs/lampcheck_off.png");
+                QPixmap lamppixmap_off(":/rcs/lamp_off.png");
                 ui->lamppixlabel->setPixmap(lamppixmap_off);
 
             }
@@ -133,13 +133,13 @@ void homeForm::updataValue(QByteArray sensorData)
             ui->coldStatelabel->setText(QString::fromLocal8Bit("在线"));
             if((quint8)sensorData[7] == 0x01)
             {
-                QPixmap coldpixmap_on(":/rcs/lampcheck_on.png");
+                QPixmap coldpixmap_on(":/rcs/pump_on.png");
                 ui->coldpixlabel->setPixmap(coldpixmap_on);
 
             }
             else
             {
-                QPixmap coldpixmap_off(":/rcs/lampcheck_off.png");
+                QPixmap coldpixmap_off(":/rcs/pump_off.png");
                 ui->coldpixlabel->setPixmap(coldpixmap_off);
             }
             break;
@@ -384,12 +384,12 @@ void homeForm::runingSmartModel(QByteArray sensorData)
             ui->pumpStatelabel->setText(QString::fromLocal8Bit("在线"));
             if((quint8)sensorData[7] == 0x01)
             {
-                QPixmap pumppixmap_on(":/rcs/fancheck_on.png");
+                QPixmap pumppixmap_on(":/rcs/pump_on.png");
                 ui->pumppixlabel->setPixmap(pumppixmap_on);
             }
             else
             {
-                QPixmap pumppixmap_off(":/rcs/fancheck_off.png");
+                QPixmap pumppixmap_off(":/rcs/pump_off.png");
                 ui->pumppixlabel->setPixmap(pumppixmap_off);
             }
             break;
@@ -397,24 +397,24 @@ void homeForm::runingSmartModel(QByteArray sensorData)
             ui->lampStatelabel->setText(QString::fromLocal8Bit("在线"));
             if((quint8)sensorData[7] == 0x01)
             {
-                QPixmap lamppixmap_on(":/rcs/lampcheck_on.png");
+                QPixmap lamppixmap_on(":/rcs/lamp_on.png");
                 ui->lamppixlabel->setPixmap(lamppixmap_on);
             }
             else
             {
-                QPixmap lamppixmap_off(":/rcs/lampcheck_off.png");
+                QPixmap lamppixmap_off(":/rcs/lamp_off.png");
                 ui->lamppixlabel->setPixmap(lamppixmap_off);
             }
         case DEVICE_COLD: //制冷
             ui->coldStatelabel->setText(QString::fromLocal8Bit("在线"));
             if((quint8)sensorData[7] == 0x01)
             {
-                QPixmap coldpixmap_on(":/rcs/lampcheck_on.png");
+                QPixmap coldpixmap_on(":/rcs/pump_on.png");
                 ui->coldpixlabel->setPixmap(coldpixmap_on);
             }
             else
             {
-                QPixmap coldpixmap_off(":/rcs/lampcheck_off.png");
+                QPixmap coldpixmap_off(":/rcs/pump_off.png");
                 ui->coldpixlabel->setPixmap(coldpixmap_off);
             }
             break;

@@ -31,9 +31,14 @@ void main(void)
 			MyTask_Two(); //任务二:震动检测
 			flag_taskTwo=0;
 		}
-
+		if(flag_taskThree)
+		{
+			MyTask_Three(); 
+			flag_taskThree=0;
+		}
 		if(SMARTMODE) //自动模式
 		{
+			if(!IO_KEY) SMARTMODE=0;
 			if(uartRxSta)
 			{
 				agreementParse(UART_RX_BUF);
@@ -51,7 +56,7 @@ void main(void)
 						sendManMsgTout = 200; 
 					}
 				}
-				//BEEP_ON();
+				BEEP_ON();
 			}else if(IO_SHAKE) //震动报警
 			{
 				if(sendShkMsgFlag)
@@ -62,11 +67,12 @@ void main(void)
 						sendShkMsgTout = 200; 
 					}
 				}
-				//BEEP_ON();
+				BEEP_ON();
 			}else{
 			}
 		}else //手动模式
 		{	
+			if(!IO_KEY) SMARTMODE=1;
 			if(uartRxSta)
 			{
 				//uartSendData(UART_RX_BUF, uartRxCount); //通过串口输出

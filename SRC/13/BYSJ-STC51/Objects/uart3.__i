@@ -1,0 +1,1 @@
+"src\uart3.c" LARGE OPTIMIZE (8,SPEED) BROWSE INCDIR(.\inc) DEBUG OBJECTEXTEND PRINT(.\Listings\uart3.lst) TABS (2) OBJECT(.\Objects\uart3.obj)

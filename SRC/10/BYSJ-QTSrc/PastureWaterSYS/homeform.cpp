@@ -32,6 +32,9 @@ homeForm::homeForm(QWidget *parent) :
 
     tempThresholdValue = 35;
     watlThresholdValue = 70;
+    shi=23;
+    fen=30;
+    miao=30;
 
     tempdata = new SensorRevData();
     timer = new QTimer(this);
@@ -86,13 +89,13 @@ void homeForm::updataValue(QByteArray sensorData)
             ui->pumpStatelabel->setText(QString::fromLocal8Bit("在线"));
             if((quint8)sensorData[7] == 0x01)
             {
-                QPixmap pumppixmap_on(":/rcs/fancheck_on.png");
+                QPixmap pumppixmap_on(":/rcs/pump_on.png");
                 ui->pumppixlabel->setPixmap(pumppixmap_on);
                 emit humancheck(true);
             }
             else
             {
-                QPixmap pumppixmap_off(":/rcs/fancheck_off.png");
+                QPixmap pumppixmap_off(":/rcs/pump_off.png");
                 ui->pumppixlabel->setPixmap(pumppixmap_off);
                 emit humancheck(false);
             }
@@ -102,12 +105,12 @@ void homeForm::updataValue(QByteArray sensorData)
             ui->timeStatelabel->setText(QString::fromLocal8Bit("在线"));
             if((quint8)sensorData[7] == 0x01)
             {
-                QPixmap pumppixmap_on(":/rcs/fancheck_on.png");
+                QPixmap pumppixmap_on(":/rcs/lamp_on.png");
                 ui->valvepixlabel->setPixmap(pumppixmap_on);
             }
             else
             {
-                QPixmap pumppixmap_off(":/rcs/fancheck_off.png");
+                QPixmap pumppixmap_off(":/rcs/lamp_off.png");
                 ui->valvepixlabel->setPixmap(pumppixmap_off);
             }
             break;
@@ -181,8 +184,8 @@ void homeForm::SensorSetModelReq(quint8 model)
     cmddata[11] = 0;
     cmddata[12] = 0;
     cmddata[13] = 0;
-    cmddata[14] = tempThresholdValue; //湿度
-    cmddata[15] = watlThresholdValue; //水位
+    cmddata[14] = watlThresholdValue;
+    cmddata[15] = tempThresholdValue; //水位
     cmddata[16] = model; //模式
     cmddata[17] = 0xFF;
 
@@ -261,6 +264,7 @@ void homeForm::resetSensorStatus()
         ui->pumpStatelabel->setText(QString::fromLocal8Bit("离线"));
     }
 }
+
 int homeForm::getsensorConfig(quint8 netid,quint8 sensorType)
 {
     SensorRevData data;
@@ -304,9 +308,31 @@ void homeForm::on_watlButton_clicked()
 
 void homeForm::timerUpdate(void)
 {
+    int shistr,fenstr,miaostr;
     QDateTime time = QDateTime::currentDateTime();
     QString str = time.toString("yyyy-MM-dd hh:mm:ss dddd");
     ui->timeshowStatelabel->setStyleSheet("color:blue;border:1px solid gray;");
     ui->timeshowStatelabel->setText(str);
+
+    shistr = str.mid(11,2).toInt();
+    fenstr = str.mid(14,2).toInt();
+    miaostr = str.mid(17,2).toInt();
+
+    if(shi==shistr && fen==fenstr && miao==miaostr) //每天的23:30排水
+    {
+        SensorCtrolReq(DEVICE_WATER_PUMP, SETON);
+    }
 }
 
+
+void homeForm::on_timeButton_clicked()
+{
+    QString data;
+
+    shi = ui->shispinBox->value();
+    fen = ui->fenspinBox->value();
+    miao = ui->miaospinBox->value();
+    qDebug()<<data.setNum(shi);
+    qDebug()<<data.setNum(fen);
+    qDebug()<<data.setNum(miao);
+}

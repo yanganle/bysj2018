@@ -1,21 +1,20 @@
 #include "tasklist.h"
-#include "LCD12864.h"
 #include "io.h"
-#include "DHT11.h"
+#include "adc.h"
 #include "agreement.h"
+#include "TFT_LCD.h"
+#include "DHT11.h"
 
-u8 u8Humi[4];
-u8 u8Temp[4];
-u8 sdata[4];
-u8 show1[] = {"有人"};
-u8 show2[] = {"无人"};
-u8 show3[] = {"噪声"};
-u8 show4[] = {"安静"};
+u8 sdata[4] = {0};
 
 void MyTask_One(void)
 {
+	u8 u8Humi[4];
+	u8 u8Temp[4];
+
 	DHT11_receive(u8Temp, u8Humi);
-	display_humiture(u8Temp, u8Humi);
+	Display_ASCII8X16_Color(50,40,u8Temp,RED,WHITE); //温度
+	Display_ASCII8X16_Color(50,60,u8Humi,RED,WHITE); //湿度
 	sdata[0] = 0;
 	sdata[1] = TH;
 	sdata[2] = 0;
@@ -23,54 +22,44 @@ void MyTask_One(void)
 	Send_SensorData(SENSOR_DHT11, 0, sdata);
 }
 
-u8 humanflag = 0;
 void MyTask_Two(void)
 {
-	if(IO_HUMAN == 1)
-	{
-		sdata[3] = 0x01;
-		display_human(show1);
-	}
-	else{
-		sdata[3] = 0x00;
-		display_human(show2);
-	}	
+	u8 str[5];
+	u8 value;
+	
+  value = get_methanal_value(str)
+	Display_ASCII8X16_Color(50,60,str,RED,WHITE); 
+	
 	sdata[0] = 0;
 	sdata[1] = 0;
 	sdata[2] = 0;
-	Send_SensorData(SENSOR_HUMAN, 0, sdata);
+	sdata[3] = value;
+	Send_SensorData(SENSOR_METHANAL, 0, sdata);
 }
-
-u8 soundflag = 0;
 void MyTask_Three(void)
 {
-	if(IO_SOUND == 1)
-	{
-		sdata[3] = 0x01;
-		display_sound(show3);
-	}
-	else{
-		sdata[3] = 0x00;
-		display_sound(show4);
-	}
 	sdata[0] = 0;
 	sdata[1] = 0;
 	sdata[2] = 0;
+	sdata[3] = IO_SOUND;
 	Send_SensorData(SENSOR_SOUND, 0, sdata);
 }
-
 void MyTask_Four(void)
 {
-	if(IO_FAN == 1)
-	{
-		sdata[3] = 0x01;
-	}
-	else{
-		sdata[3] = 0x00;
-	}
 	sdata[0] = 0;
 	sdata[1] = 0;
 	sdata[2] = 0;
+	sdata[3] = IO_MAN;
+	Send_SensorData(SENSOR_MAN, 0, sdata);
+}
+void MyTask_Five(void)
+{
+	if(IO_FAN) Display_ASCII8X16_Color(50,100,"ON ",RED,WHITE); 
+	else Display_ASCII8X16_Color(50,100,"OFF",BLACK,WHITE); 
+	
+	sdata[0] = 0;
+	sdata[1] = 0;
+	sdata[2] = 0;
+	sdata[3] = IO_FAN;
 	Send_SensorData(SENSOR_FAN, 0, sdata);
 }
-

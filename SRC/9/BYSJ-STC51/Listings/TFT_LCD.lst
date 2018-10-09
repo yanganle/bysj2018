@@ -1,4 +1,4 @@
-C51 COMPILER V9.56.0.0   TFT_LCD                                                           09/27/2018 10:11:53 PAGE 1   
+C51 COMPILER V9.56.0.0   TFT_LCD                                                           10/09/2018 14:31:48 PAGE 1   
 
 
 C51 COMPILER V9.56.0.0, COMPILATION OF MODULE TFT_LCD
@@ -62,7 +62,7 @@ line level    source
   52            0x10,0x10,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
   53            0x00,0x00,0x00,0x00,0x00,0x08,0x08,0x08,0x0c,0x0c,0x0c,0x00,0x00,
   54            0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
-C51 COMPILER V9.56.0.0   TFT_LCD                                                           09/27/2018 10:11:53 PAGE 2   
+C51 COMPILER V9.56.0.0   TFT_LCD                                                           10/09/2018 14:31:48 PAGE 2   
 
   55            0x00,0x00,0x00,0x00,0x00,0x6c,0x38,0x10,0x00,0x7c,0xc6,0x70,0x1c,
   56            0xc6,0x7c,0x00,0x00,0x00,0x00,0x00,0x00,0x10,0x38,0x6c,0x00,0x78,
@@ -126,7 +126,7 @@ line level    source
  114            0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x60,0x30,0x18,0x0c,0x06,0x0c,
  115            0x18,0x30,0x60,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x7c,0xc6,0xc6,
  116            0x0c,0x18,0x18,0x00,0x18,0x18,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
-C51 COMPILER V9.56.0.0   TFT_LCD                                                           09/27/2018 10:11:53 PAGE 3   
+C51 COMPILER V9.56.0.0   TFT_LCD                                                           10/09/2018 14:31:48 PAGE 3   
 
  117            0x7c,0xc6,0xc6,0xde,0xde,0xde,0xdc,0xc0,0x7c,0x00,0x00,0x00,0x00,
  118            0x00,0x00,0x00,0x10,0x38,0x6c,0xc6,0xc6,0xfe,0xc6,0xc6,0xc6,0x00,
@@ -190,7 +190,7 @@ line level    source
  176            0x00,0x00,0x00,0x00,0xdc,0x66,0x66,0x66,0x7c,0x60,0x60,0xf0,0x00,
  177            0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x76,0xcc,0xcc,0xcc,0x7c,0x0c,
  178            0x0c,0x1e,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xdc,0x76,0x66,
-C51 COMPILER V9.56.0.0   TFT_LCD                                                           09/27/2018 10:11:53 PAGE 4   
+C51 COMPILER V9.56.0.0   TFT_LCD                                                           10/09/2018 14:31:48 PAGE 4   
 
  179            0x60,0x60,0xf0,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
  180            0x7c,0xc6,0x70,0x1c,0xc6,0x7c,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
@@ -254,7 +254,7 @@ line level    source
  238            0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
  239            0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
  240            0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
-C51 COMPILER V9.56.0.0   TFT_LCD                                                           09/27/2018 10:11:53 PAGE 5   
+C51 COMPILER V9.56.0.0   TFT_LCD                                                           10/09/2018 14:31:48 PAGE 5   
 
  241            0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
  242            0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
@@ -318,7 +318,7 @@ line level    source
  300            0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
  301            0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
  302            0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
-C51 COMPILER V9.56.0.0   TFT_LCD                                                           09/27/2018 10:11:53 PAGE 6   
+C51 COMPILER V9.56.0.0   TFT_LCD                                                           10/09/2018 14:31:48 PAGE 6   
 
  303            0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
  304            0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
@@ -382,7 +382,7 @@ line level    source
  362   1       uint i,j;
  363   1        for(i=0;i<time;i++)
  364   1         for(j=0;j<250;j++);
-C51 COMPILER V9.56.0.0   TFT_LCD                                                           09/27/2018 10:11:53 PAGE 7   
+C51 COMPILER V9.56.0.0   TFT_LCD                                                           10/09/2018 14:31:48 PAGE 7   
 
  365   1      }
  366          
@@ -446,7 +446,7 @@ line level    source
  424   1          
  425   1        //LCD Init For 1.44Inch LCD Panel with ST7735R.
  426   1        Lcd_WriteIndex(0x11);//Sleep exit 
-C51 COMPILER V9.56.0.0   TFT_LCD                                                           09/27/2018 10:11:53 PAGE 8   
+C51 COMPILER V9.56.0.0   TFT_LCD                                                           10/09/2018 14:31:48 PAGE 8   
 
  427   1        lcd_delay_ms (120);
  428   1          
@@ -510,7 +510,7 @@ line level    source
  486   1        Lcd_WriteData(0x28); 
  487   1        Lcd_WriteData(0x20); 
  488   1        Lcd_WriteData(0x22); 
-C51 COMPILER V9.56.0.0   TFT_LCD                                                           09/27/2018 10:11:53 PAGE 9   
+C51 COMPILER V9.56.0.0   TFT_LCD                                                           10/09/2018 14:31:48 PAGE 9   
 
  489   1        Lcd_WriteData(0x1f); 
  490   1        Lcd_WriteData(0x1b); 
@@ -574,7 +574,7 @@ line level    source
  548          *************************************************/
  549          void Lcd_SetRegion(unsigned int x_start,unsigned int y_start,unsigned int x_end,unsigned int y_end)
  550          { 
-C51 COMPILER V9.56.0.0   TFT_LCD                                                           09/27/2018 10:11:53 PAGE 10  
+C51 COMPILER V9.56.0.0   TFT_LCD                                                           10/09/2018 14:31:48 PAGE 10  
 
  551   1      #ifdef USE_LANDSCAPE//使用横屏模式
                 Lcd_WriteIndex(0x2a);
@@ -638,7 +638,7 @@ line level    source
  610   1        
  611   1        for(i = 0; i<strlen((char*)s);i++)
  612   1        {
-C51 COMPILER V9.56.0.0   TFT_LCD                                                           09/27/2018 10:11:53 PAGE 11  
+C51 COMPILER V9.56.0.0   TFT_LCD                                                           10/09/2018 14:31:48 PAGE 11  
 
  613   2          if(((unsigned char)(*(s+i))) >= 161)
  614   2          {
@@ -702,7 +702,7 @@ line level    source
  672   2          {
  673   3            qm = *(s+i);
  674   3            
-C51 COMPILER V9.56.0.0   TFT_LCD                                                           09/27/2018 10:11:53 PAGE 12  
+C51 COMPILER V9.56.0.0   TFT_LCD                                                           10/09/2018 14:31:48 PAGE 12  
 
  675   3            ulOffset = (long int)(qm) * 16;
  676   3            
@@ -766,7 +766,7 @@ line level    source
  734   5              }
  735   4            }
  736   3          s+=2;x+=16;
-C51 COMPILER V9.56.0.0   TFT_LCD                                                           09/27/2018 10:11:53 PAGE 13  
+C51 COMPILER V9.56.0.0   TFT_LCD                                                           10/09/2018 14:31:48 PAGE 13  
 
  737   3          }
  738   2            
@@ -830,7 +830,7 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
    EDATA SIZE       =   ----    ----
-C51 COMPILER V9.56.0.0   TFT_LCD                                                           09/27/2018 10:11:53 PAGE 14  
+C51 COMPILER V9.56.0.0   TFT_LCD                                                           10/09/2018 14:31:48 PAGE 14  
 
    HDATA SIZE       =   ----    ----
    XDATA CONST SIZE =   ----    ----

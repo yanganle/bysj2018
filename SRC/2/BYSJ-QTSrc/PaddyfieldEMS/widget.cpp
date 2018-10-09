@@ -28,7 +28,7 @@ Widget::Widget(QWidget *parent) :
     comthread = NULL;
     wifithread = NULL;
 
-    nodeform = new nodeMessage();
+    //nodeform = new nodeMessage();
     navWidget = new homeForm();
     setDialog = new setting();
 
@@ -157,8 +157,8 @@ void Widget::receviceHumdata(double data)
     QString sensorData;
     ui->humLabel->setText(sensorData.setNum(data));
 }
-void Widget::on_startButton_clicked()
+/*void Widget::on_startButton_clicked()
 {
     nodeform->show();
-}
+}*/
 

@@ -437,14 +437,14 @@ public:
         groupBox_4->setTitle(QApplication::translate("homeForm", "LED\347\201\257", 0));
         lamppixlabel->setText(QString());
         label_39->setText(QApplication::translate("homeForm", "\346\243\200\346\265\213", 0));
-        lampStatelabel->setText(QString());
+        lampStatelabel->setText(QApplication::translate("homeForm", "\347\246\273\347\272\277", 0));
         label_25->setText(QApplication::translate("homeForm", "\350\256\276\345\244\207\347\212\266\346\200\201\357\274\232", 0));
         label_24->setText(QApplication::translate("homeForm", "\350\256\276\345\244\207\347\261\273\345\236\213\357\274\232", 0));
         label_26->setText(QApplication::translate("homeForm", "\350\256\276\345\244\207\346\216\247\345\210\266", 0));
         groupBox_3->setTitle(QApplication::translate("homeForm", "\351\243\216\346\211\207", 0));
         fanpixlabel->setText(QString());
         label_37->setText(QApplication::translate("homeForm", "\346\243\200\346\265\213", 0));
-        fanStatelabel->setText(QString());
+        fanStatelabel->setText(QApplication::translate("homeForm", "\347\246\273\347\272\277", 0));
         label_21->setText(QApplication::translate("homeForm", "\350\256\276\345\244\207\347\212\266\346\200\201\357\274\232", 0));
         label_22->setText(QApplication::translate("homeForm", "\350\256\276\345\244\207\347\261\273\345\236\213\357\274\232", 0));
         label_23->setText(QApplication::translate("homeForm", "\350\256\276\345\244\207\346\216\247\345\210\266", 0));

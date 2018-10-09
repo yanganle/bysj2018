@@ -1,4 +1,4 @@
-C51 COMPILER V9.56.0.0   MAIN                                                              09/27/2018 10:11:53 PAGE 1   
+C51 COMPILER V9.56.0.0   MAIN                                                              10/09/2018 14:31:48 PAGE 1   
 
 
 C51 COMPILER V9.56.0.0, COMPILATION OF MODULE MAIN
@@ -41,77 +41,83 @@ line level    source
   31   3            MyTask_Two(); //任务二:震动检测
   32   3            flag_taskTwo=0;
   33   3          }
-  34   2      
-  35   2          if(SMARTMODE) //自动模式
-  36   2          {
-  37   3            if(uartRxSta)
-  38   3            {
-  39   4              agreementParse(UART_RX_BUF);
-  40   4              clearBuf();
-  41   4              uartRxSta = 0;
-  42   4              uartRxCount = 0;
-  43   4            }
-  44   3            if(IO_HUMAN) //人体检测报警
-  45   3            {
-  46   4              if(sendManMsgFlag)
-  47   4              {
-  48   5                if(sam800a_send_chmessage(mynumber, manmsg))
-  49   5                {
-  50   6                  sendManMsgFlag = 0;
-  51   6                  sendManMsgTout = 200; 
-  52   6                }
-  53   5              }
-  54   4              //BEEP_ON();
-C51 COMPILER V9.56.0.0   MAIN                                                              09/27/2018 10:11:53 PAGE 2   
+  34   2          if(flag_taskThree)
+  35   2          {
+  36   3            MyTask_Three(); 
+  37   3            flag_taskThree=0;
+  38   3          }
+  39   2          if(SMARTMODE) //自动模式
+  40   2          {
+  41   3            if(!IO_KEY) SMARTMODE=0;
+  42   3            if(uartRxSta)
+  43   3            {
+  44   4              agreementParse(UART_RX_BUF);
+  45   4              clearBuf();
+  46   4              uartRxSta = 0;
+  47   4              uartRxCount = 0;
+  48   4            }
+  49   3            if(IO_HUMAN) //人体检测报警
+  50   3            {
+  51   4              if(sendManMsgFlag)
+  52   4              {
+  53   5                if(sam800a_send_chmessage(mynumber, manmsg))
+  54   5                {
+C51 COMPILER V9.56.0.0   MAIN                                                              10/09/2018 14:31:48 PAGE 2   
 
-  55   4            }else if(IO_SHAKE) //震动报警
-  56   3            {
-  57   4              if(sendShkMsgFlag)
-  58   4              {
-  59   5                if(sam800a_send_chmessage(mynumber, shakemsg))
-  60   5                {
-  61   6                  sendShkMsgFlag = 0;
-  62   6                  sendShkMsgTout = 200; 
-  63   6                }
-  64   5              }
-  65   4              //BEEP_ON();
-  66   4            }else{
-  67   4            }
-  68   3          }else //手动模式
-  69   2          { 
-  70   3            if(uartRxSta)
-  71   3            {
-  72   4              //uartSendData(UART_RX_BUF, uartRxCount); //通过串口输出
-  73   4              agreementParse(UART_RX_BUF);
-  74   4              uartRxSta = 0;
-  75   4              uartRxCount = 0;
-  76   4            }
-  77   3          }
-  78   2        } 
-  79   1      }
-  80          
-  81          void bsp_init(void)
-  82          {
-  83   1        UartInit();
-  84   1        Uart2Init();
-  85   1        mysysinit();
-  86   1        lcd_initial();
-  87   1        display_background();
-  88   1        while(sim800a_work_init());
-  89   1      }
-  90          void display_background(void)
-  91          {
-  92   1        dsp_single_colour(WHITE);
-  93   1        Fast_DrawFont_GBK16(15,10,BLUE,WHITE, "车辆防盗系统");
-  94   1        Fast_DrawFont_GBK16(5,40,BLACK,WHITE, "人体:");
-  95   1        Fast_DrawFont_GBK16(5,80,BLACK,WHITE, "震动:");
-  96   1      }
-  97          
-  98          
+  55   6                  sendManMsgFlag = 0;
+  56   6                  sendManMsgTout = 200; 
+  57   6                }
+  58   5              }
+  59   4              BEEP_ON();
+  60   4            }else if(IO_SHAKE) //震动报警
+  61   3            {
+  62   4              if(sendShkMsgFlag)
+  63   4              {
+  64   5                if(sam800a_send_chmessage(mynumber, shakemsg))
+  65   5                {
+  66   6                  sendShkMsgFlag = 0;
+  67   6                  sendShkMsgTout = 200; 
+  68   6                }
+  69   5              }
+  70   4              BEEP_ON();
+  71   4            }else{
+  72   4            }
+  73   3          }else //手动模式
+  74   2          { 
+  75   3            if(!IO_KEY) SMARTMODE=1;
+  76   3            if(uartRxSta)
+  77   3            {
+  78   4              //uartSendData(UART_RX_BUF, uartRxCount); //通过串口输出
+  79   4              agreementParse(UART_RX_BUF);
+  80   4              uartRxSta = 0;
+  81   4              uartRxCount = 0;
+  82   4            }
+  83   3          }
+  84   2        } 
+  85   1      }
+  86          
+  87          void bsp_init(void)
+  88          {
+  89   1        UartInit();
+  90   1        Uart2Init();
+  91   1        mysysinit();
+  92   1        lcd_initial();
+  93   1        display_background();
+  94   1        while(sim800a_work_init());
+  95   1      }
+  96          void display_background(void)
+  97          {
+  98   1        dsp_single_colour(WHITE);
+  99   1        Fast_DrawFont_GBK16(15,10,BLUE,WHITE, "车辆防盗系统");
+ 100   1        Fast_DrawFont_GBK16(5,40,BLACK,WHITE, "人体:");
+ 101   1        Fast_DrawFont_GBK16(5,80,BLACK,WHITE, "震动:");
+ 102   1      }
+ 103          
+ 104          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    343    ----
+   CODE SIZE        =    376    ----
    CONSTANT SIZE    =    104    ----
    XDATA SIZE       =      9    ----
    PDATA SIZE       =   ----    ----
@@ -120,6 +126,8 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    BIT SIZE         =   ----    ----
    EDATA SIZE       =   ----    ----
    HDATA SIZE       =   ----    ----
+C51 COMPILER V9.56.0.0   MAIN                                                              10/09/2018 14:31:48 PAGE 3   
+
    XDATA CONST SIZE =   ----    ----
    FAR CONST SIZE   =   ----    ----
 END OF MODULE INFORMATION.

@@ -11,7 +11,7 @@ Widget::Widget(QWidget *parent) :
     QTextCodec *codec = QTextCodec::codecForName("utf8"); //GBK gbk
     QTextCodec::setCodecForLocale(codec);
 
-    this->setWindowTitle(QString::fromLocal8Bit("工厂环境监控"));
+    this->setWindowTitle(QString::fromLocal8Bit("鞭炮仓库环境监控"));
 
     setWidgetbackground(this,QPixmap(":/rcs/mainpage.jpg"));
     setButtonbackground(ui->startButton,QPixmap(":/rcs/widgetButton.png"));

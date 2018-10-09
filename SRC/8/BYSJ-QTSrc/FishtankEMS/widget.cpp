@@ -11,7 +11,7 @@ Widget::Widget(QWidget *parent) :
     QTextCodec *codec = QTextCodec::codecForName("utf8"); //GBK gbk
     QTextCodec::setCodecForLocale(codec);
 
-    this->setWindowTitle(QString::fromLocal8Bit("水稻环境监测系统"));
+    this->setWindowTitle(QString::fromLocal8Bit("智能鱼缸"));
 
     setWidgetbackground(this,QPixmap(":/rcs/mainpage.jpg"));
     setButtonbackground(ui->startButton,QPixmap(":/rcs/widgetButton.png"));
@@ -159,6 +159,6 @@ void Widget::receviceHumdata(double data)
 }
 void Widget::on_startButton_clicked()
 {
-    nodeform->show();
+    //nodeform->show();
 }
 

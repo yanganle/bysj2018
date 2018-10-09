@@ -115,6 +115,8 @@ public:
     QLabel *label_38;
     QLabel *timeshowStatelabel;
     QLabel *label_24;
+    QLabel *watlStatelabel_5;
+    QSpinBox *miaospinBox;
 
     void setupUi(QWidget *homeForm)
     {
@@ -389,24 +391,24 @@ public:
         line_6->setFrameShadow(QFrame::Sunken);
         shispinBox = new QSpinBox(groupBox_4);
         shispinBox->setObjectName(QStringLiteral("shispinBox"));
-        shispinBox->setGeometry(QRect(100, 90, 42, 22));
-        shispinBox->setValue(18);
+        shispinBox->setGeometry(QRect(80, 90, 42, 22));
+        shispinBox->setValue(23);
         fenspinBox = new QSpinBox(groupBox_4);
         fenspinBox->setObjectName(QStringLiteral("fenspinBox"));
-        fenspinBox->setGeometry(QRect(150, 90, 42, 22));
+        fenspinBox->setGeometry(QRect(130, 90, 42, 22));
         fenspinBox->setValue(30);
         watlStatelabel_2 = new QLabel(groupBox_4);
         watlStatelabel_2->setObjectName(QStringLiteral("watlStatelabel_2"));
         watlStatelabel_2->setGeometry(QRect(30, 50, 31, 16));
         watlStatelabel_3 = new QLabel(groupBox_4);
         watlStatelabel_3->setObjectName(QStringLiteral("watlStatelabel_3"));
-        watlStatelabel_3->setGeometry(QRect(120, 70, 16, 16));
+        watlStatelabel_3->setGeometry(QRect(100, 70, 16, 16));
         watlStatelabel_4 = new QLabel(groupBox_4);
         watlStatelabel_4->setObjectName(QStringLiteral("watlStatelabel_4"));
-        watlStatelabel_4->setGeometry(QRect(160, 70, 16, 16));
+        watlStatelabel_4->setGeometry(QRect(140, 70, 16, 16));
         watlStatelabel_6 = new QLabel(groupBox_4);
         watlStatelabel_6->setObjectName(QStringLiteral("watlStatelabel_6"));
-        watlStatelabel_6->setGeometry(QRect(40, 90, 51, 16));
+        watlStatelabel_6->setGeometry(QRect(20, 90, 51, 16));
         timeButton = new QPushButton(groupBox_4);
         timeButton->setObjectName(QStringLiteral("timeButton"));
         timeButton->setGeometry(QRect(300, 94, 61, 23));
@@ -431,6 +433,13 @@ public:
         label_24 = new QLabel(groupBox_4);
         label_24->setObjectName(QStringLiteral("label_24"));
         label_24->setGeometry(QRect(20, 40, 31, 25));
+        watlStatelabel_5 = new QLabel(groupBox_4);
+        watlStatelabel_5->setObjectName(QStringLiteral("watlStatelabel_5"));
+        watlStatelabel_5->setGeometry(QRect(190, 70, 16, 16));
+        miaospinBox = new QSpinBox(groupBox_4);
+        miaospinBox->setObjectName(QStringLiteral("miaospinBox"));
+        miaospinBox->setGeometry(QRect(180, 90, 42, 22));
+        miaospinBox->setValue(30);
 
         gridLayout_2->addWidget(groupBox_4, 2, 1, 1, 1);
 
@@ -503,6 +512,7 @@ public:
         label_38->setText(QApplication::translate("homeForm", "\346\216\247\345\210\266", 0));
         timeshowStatelabel->setText(QString());
         label_24->setText(QApplication::translate("homeForm", "\346\227\266\351\227\264\357\274\232", 0));
+        watlStatelabel_5->setText(QApplication::translate("homeForm", "\347\247\222", 0));
     } // retranslateUi
 
 };

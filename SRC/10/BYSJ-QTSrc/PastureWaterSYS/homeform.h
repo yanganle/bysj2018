@@ -58,6 +58,7 @@ private:
 
     quint8 tempThresholdValue;
     quint8 watlThresholdValue;
+    int shi,fen,miao;
 
 signals:
     void humancheck(bool flag);
@@ -76,6 +77,7 @@ public slots:
 private slots:
     void on_tempButton_clicked();
     void on_watlButton_clicked();
+    void on_timeButton_clicked();
 };
 
 #endif // HOMEFORM_H

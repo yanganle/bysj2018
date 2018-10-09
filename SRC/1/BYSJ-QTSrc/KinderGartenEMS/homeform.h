@@ -56,6 +56,7 @@ private:
 
     quint8 tempThresholdValue;
     quint8 humiThresholdValue;
+    quint8 methThresholdValue;
 signals:
     void hummancheck(bool flag);
     void tempcheck(double data);
@@ -71,6 +72,7 @@ public slots:
 private slots:
     void on_tempButton_clicked();
     void on_humiButton_clicked();
+    void on_methButton_clicked();
 };
 
 #endif // HOMEFORM_H

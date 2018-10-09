@@ -10,6 +10,7 @@ extern u8 flag_taskOne;
 extern u8 flag_taskTwo;
 extern u8 flag_taskThree;
 extern u8 flag_taskFour;
+extern u8 flag_taskFive;
 
 void mysysinit(void);
 

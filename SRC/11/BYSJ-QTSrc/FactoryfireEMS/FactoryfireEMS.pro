@@ -6,7 +6,7 @@
 
 QT       += core gui widgets network
 
-TARGET = FactoryEMS
+TARGET = FactoryfireEMS
 TEMPLATE = app
 
 

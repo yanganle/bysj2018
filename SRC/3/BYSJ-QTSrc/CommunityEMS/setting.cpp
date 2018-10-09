@@ -11,6 +11,9 @@ setting::setting(QWidget *parent) :
     QTextCodec *codec = QTextCodec::codecForName("utf8"); //GBK gbk
     QTextCodec::setCodecForLocale(codec);
     this->setWindowTitle(QString::fromLocal8Bit("设置"));
+    //QPalette pl;
+    //pl.setColor(QPalette::Window, QColor(178, 178, 178, 200)); //设置背景颜色为黑色，如果不设置默认为白色
+    //this->setPalette(pl);
     this->setWindowOpacity(0.9); //背景和元素都设置透明效果
     this->setModal(true); //设置为模态界面
 

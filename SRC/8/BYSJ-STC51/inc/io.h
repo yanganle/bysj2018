@@ -5,6 +5,7 @@
 
 sbit IO_PUMP  = P0^1;
 sbit IO_LAMP  = P0^2;
+sbit IO_TURB  = P0^3;
 
 #define PUMP_ON() IO_PUMP = 1
 #define PUMP_OFF() IO_PUMP = 0

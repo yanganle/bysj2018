@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_homeForm_t {
-    QByteArrayData data[22];
-    char stringdata[271];
+    QByteArrayData data[23];
+    char stringdata[293];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -50,7 +50,8 @@ QT_MOC_LITERAL(17, 190, 14),
 QT_MOC_LITERAL(18, 205, 9),
 QT_MOC_LITERAL(19, 215, 11),
 QT_MOC_LITERAL(20, 227, 21),
-QT_MOC_LITERAL(21, 249, 21)
+QT_MOC_LITERAL(21, 249, 21),
+QT_MOC_LITERAL(22, 271, 21)
     },
     "homeForm\0humancheck\0\0flag\0tempcheck\0"
     "data\0humicheck\0sensorCtrol\0sensorCmdData\0"
@@ -58,7 +59,8 @@ QT_MOC_LITERAL(21, 249, 21)
     "buttonstate\0button2CheckHandle\0"
     "saveDatatoList\0QByteArray&\0changeStatus\0"
     "switchRunModle\0modelflag\0timerUpdate\0"
-    "on_tempButton_clicked\0on_watlButton_clicked"
+    "on_tempButton_clicked\0on_watlButton_clicked\0"
+    "on_timeButton_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -68,7 +70,7 @@ static const uint qt_meta_data_homeForm[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      13,   14, // methods
+      14,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -76,21 +78,22 @@ static const uint qt_meta_data_homeForm[] = {
        4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   79,    2, 0x06 /* Public */,
-       4,    1,   82,    2, 0x06 /* Public */,
-       6,    1,   85,    2, 0x06 /* Public */,
-       7,    1,   88,    2, 0x06 /* Public */,
+       1,    1,   84,    2, 0x06 /* Public */,
+       4,    1,   87,    2, 0x06 /* Public */,
+       6,    1,   90,    2, 0x06 /* Public */,
+       7,    1,   93,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       9,    1,   91,    2, 0x0a /* Public */,
-      11,    1,   94,    2, 0x0a /* Public */,
-      13,    1,   97,    2, 0x0a /* Public */,
-      14,    1,  100,    2, 0x0a /* Public */,
-      16,    0,  103,    2, 0x0a /* Public */,
-      17,    1,  104,    2, 0x0a /* Public */,
-      19,    0,  107,    2, 0x0a /* Public */,
-      20,    0,  108,    2, 0x08 /* Private */,
-      21,    0,  109,    2, 0x08 /* Private */,
+       9,    1,   96,    2, 0x0a /* Public */,
+      11,    1,   99,    2, 0x0a /* Public */,
+      13,    1,  102,    2, 0x0a /* Public */,
+      14,    1,  105,    2, 0x0a /* Public */,
+      16,    0,  108,    2, 0x0a /* Public */,
+      17,    1,  109,    2, 0x0a /* Public */,
+      19,    0,  112,    2, 0x0a /* Public */,
+      20,    0,  113,    2, 0x08 /* Private */,
+      21,    0,  114,    2, 0x08 /* Private */,
+      22,    0,  115,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Bool,    3,
@@ -105,6 +108,7 @@ static const uint qt_meta_data_homeForm[] = {
     QMetaType::Bool, 0x80000000 | 15,   10,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Bool,   18,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -131,6 +135,7 @@ void homeForm::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 10: _t->timerUpdate(); break;
         case 11: _t->on_tempButton_clicked(); break;
         case 12: _t->on_watlButton_clicked(); break;
+        case 13: _t->on_timeButton_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -188,13 +193,13 @@ int homeForm::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 14)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 14;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 13)
+        if (_id < 14)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 13;
+        _id -= 14;
     }
     return _id;
 }

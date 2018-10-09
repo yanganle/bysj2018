@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.66.0                                                          09/28/2018  16:53:02  PAGE 1
+LX51 LINKER/LOCATER V4.66.66.0                                                          10/09/2018  10:46:18  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.66.0, INVOKED BY:
@@ -67,7 +67,7 @@ INPUT MODULES INCLUDED:
   C:\KEIL_V5\C51\LIB\C51L.LIB (STRLEN)
          COMMENT TYPE 1: A51 / ASM51 Assembler
   C:\KEIL_V5\C51\LIB\C51L.LIB (?C_INIT)
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 2
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 2
 
 
          COMMENT TYPE 1: A51 / ASM51 Assembler
@@ -135,7 +135,7 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 00152DH   00156FH   000043H   BYTE   UNIT     CODE           ?PR?_LCD_SETREGION?TFT_LCD
 001570H   0015A9H   00003AH   BYTE   UNIT     CODE           ?PR?_SEND_SENSORDATA?AGREEMENT
 0015AAH   0015E3H   00003AH   BYTE   UNIT     CODE           ?PR?_ADC_GETVALUE?ADC
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 3
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 3
 
 
 0015E4H   001619H   000036H   BYTE   UNIT     CODE           ?PR?_DSP_SINGLE_COLOUR?TFT_LCD
@@ -203,7 +203,7 @@ UART2/UART2                           ----- -----
 
 ?C_C51STARTUP                         ----- -----
   +--> MAIN/MAIN
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 4
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 4
 
 
   +--> ?C_INITSEG
@@ -271,7 +271,7 @@ _LCD_WRITEDATA_16BIT/TFT_LCD          014EH 014EH
 
 ?CO?MAIN                              ----- -----
 
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 5
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 5
 
 
 _FAST_DRAWFONT_GBK16/TFT_LCD          0107H 0115H
@@ -339,7 +339,7 @@ MYTASK_THREE/TASKLIST                 0107H 010CH
 
 _GET_PH_VALUE/ADC                     010DH 0112H
   +--> _ADC_GETVALUE/ADC
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 6
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 6
 
 
 
@@ -407,7 +407,7 @@ PUBLIC SYMBOLS OF MODULE:  .\Objects\samartAgr (MYSYS)
       010017ECH   CODE     ---       _SPI_WriteData
       0100000EH   CODE     ---       _STRLEN
       0100164DH   CODE     ---       _UART2_SendString
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 7
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 7
 
 
       010016ADH   CODE     ---       _uart2SendData
@@ -475,7 +475,7 @@ PUBLIC SYMBOLS OF MODULE:  .\Objects\samartAgr (MYSYS)
       0100075EH   CODE     ---       lcd_initial
       0100183EH   CODE     ---       Lcd_Reset
       010011A5H   CODE     ---       main
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 8
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 8
 
 
       01001819H   CODE     ---       mysysinit
@@ -543,7 +543,7 @@ PUBLIC SYMBOLS OF MODULE:  .\Objects\samartAgr (MYSYS)
 *SFR* 00000098H.1 DATA     BIT       TI
       01000C37H   CODE     ---       timer0
 *SFR* 0000008AH   DATA     BYTE      TL0
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 9
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 9
 
 
 *SFR* 0000008BH   DATA     BYTE      TL1
@@ -611,7 +611,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       00000081H   SFRSYM    DATA     BYTE      SP
       00000090H.1 SFRSYM    DATA     BIT       T2EX
       000000D0H.2 SFRSYM    DATA     BIT       OV
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 10
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 10
 
 
       000000CAH   SFRSYM    DATA     BYTE      RCAP2L
@@ -679,7 +679,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       0100181FH   LINE      CODE     ---       #15
       01001822H   LINE      CODE     ---       #16
       01001825H   LINE      CODE     ---       #17
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 11
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 11
 
 
       01001827H   LINE      CODE     ---       #18
@@ -747,7 +747,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       00000081H   SFRSYM    DATA     BYTE      SP
       00000090H.1 SFRSYM    DATA     BIT       T2EX
       000000D0H.2 SFRSYM    DATA     BIT       OV
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 12
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 12
 
 
       000000A0H.1 SFRSYM    DATA     BIT       reset
@@ -815,7 +815,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       000000B0H   SFRSYM    DATA     BIT       RXD
       000000B0H.1 SFRSYM    DATA     BIT       TXD
       000000D0H.5 SFRSYM    DATA     BIT       F0
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 13
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 13
 
 
       000000D0H   SFRSYM    DATA     BYTE      PSW
@@ -883,7 +883,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       ---         MODULE    ---      ---       AGREEMENT
       0200019DH   PUBLIC    XDATA    BYTE      watl_threshold
       0200019CH   PUBLIC    XDATA    BYTE      SMARTMODE
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 14
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 14
 
 
       0200018AH   PUBLIC    XDATA    ---       DataBuf
@@ -951,7 +951,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       0000008BH   SFRSYM    DATA     BYTE      TL1
       00000098H.5 SFRSYM    DATA     BIT       SM2
       000000CCH   SFRSYM    DATA     BYTE      TL2
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 15
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 15
 
 
       000000B8H.1 SFRSYM    DATA     BIT       PT0
@@ -1019,7 +1019,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
 
       ---         MODULE    ---      ---       IO
       00000080H   SFRSYM    DATA     BYTE      P0
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 16
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 16
 
 
       00000090H   SFRSYM    DATA     BYTE      P1
@@ -1087,7 +1087,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       000000B8H.3 SFRSYM    DATA     BIT       PT1
       000000D0H.3 SFRSYM    DATA     BIT       RS0
       000000B8H.5 SFRSYM    DATA     BIT       PT2
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 17
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 17
 
 
       00000088H.4 SFRSYM    DATA     BIT       TR0
@@ -1155,7 +1155,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       00000088H.7 SFRSYM    DATA     BIT       TF1
       000000C8H.7 SFRSYM    DATA     BIT       TF2
       00000098H.2 SFRSYM    DATA     BIT       RB8
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 18
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 18
 
 
       0000008CH   SFRSYM    DATA     BYTE      TH0
@@ -1223,7 +1223,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       ---         MODULE    ---      ---       UART
       02000083H   PUBLIC    XDATA    BYTE      uartRxTimeOut
       00000020H.0 PUBLIC    BIT      BIT       busy
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 19
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 19
 
 
       02000082H   PUBLIC    XDATA    BYTE      cmd
@@ -1291,7 +1291,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       000000A8H.2 SFRSYM    DATA     BIT       EX1
       00000088H.2 SFRSYM    DATA     BIT       IT1
       000000CDH   SFRSYM    DATA     BYTE      TH2
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 20
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 20
 
 
       000000D0H   SFRSYM    DATA     BIT       P
@@ -1359,7 +1359,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       010012E3H   LINE      CODE     ---       #48
       010012E3H   LINE      CODE     ---       #49
       ---         BLOCKEND  ---      ---       LVL=0
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 21
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 21
 
 
 
@@ -1427,7 +1427,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       00000080H   SFRSYM    DATA     BYTE      P0
       00000090H   SFRSYM    DATA     BYTE      P1
       000000A0H   SFRSYM    DATA     BYTE      P2
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 22
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 22
 
 
       000000B0H   SFRSYM    DATA     BYTE      P3
@@ -1495,7 +1495,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       000000D0H.3 SFRSYM    DATA     BIT       RS0
       000000B8H.5 SFRSYM    DATA     BIT       PT2
       00000088H.4 SFRSYM    DATA     BIT       TR0
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 23
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 23
 
 
       000000D0H.4 SFRSYM    DATA     BIT       RS1
@@ -1563,7 +1563,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
 
       0100164DH   BLOCK     CODE     ---       LVL=0
       020001C6H   SYMBOL    XDATA    ---       s
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 24
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 24
 
 
       0100164DH   LINE      CODE     ---       #66
@@ -1631,7 +1631,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       00000081H   SFRSYM    DATA     BYTE      SP
       00000090H.1 SFRSYM    DATA     BIT       T2EX
       000000D0H.2 SFRSYM    DATA     BIT       OV
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 25
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 25
 
 
       000000CAH   SFRSYM    DATA     BYTE      RCAP2L
@@ -1699,7 +1699,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       01001872H   LINE      CODE     ---       #6
       01001872H   LINE      CODE     ---       #7
       01001875H   LINE      CODE     ---       #8
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 26
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 26
 
 
       01001878H   LINE      CODE     ---       #9
@@ -1767,7 +1767,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       MAIN
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 27
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 27
 
 
       01001079H   PUBLIC    CODE     ---       display_background
@@ -1835,7 +1835,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       00000088H.2 SFRSYM    DATA     BIT       IT1
       000000CDH   SFRSYM    DATA     BYTE      TH2
       000000D0H   SFRSYM    DATA     BIT       P
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 28
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 28
 
 
       00000098H.7 SFRSYM    DATA     BIT       SM0
@@ -1903,7 +1903,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       010011FAH   LINE      CODE     ---       #47
       010011FEH   LINE      CODE     ---       #48
       010011FEH   LINE      CODE     ---       #49
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 29
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 29
 
 
       0100120FH   LINE      CODE     ---       #50
@@ -1971,7 +1971,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       000000B0H.5 SFRSYM    DATA     BIT       T1
       00000090H   SFRSYM    DATA     BIT       T2
       000000A8H.7 SFRSYM    DATA     BIT       EA
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 30
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 30
 
 
       000000A8H   SFRSYM    DATA     BYTE      IE
@@ -2039,7 +2039,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       000000D0H.4 SFRSYM    DATA     BIT       RS1
       00000088H.6 SFRSYM    DATA     BIT       TR1
       000000C8H.2 SFRSYM    DATA     BIT       TR2
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 31
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 31
 
 
       000000B8H   SFRSYM    DATA     BIT       PX0
@@ -2107,7 +2107,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       02000156H   SYMBOL    XDATA    BYTE      i
       0100180AH   BLOCK     CODE     NEAR LAB  LVL=1
       02000156H   SYMBOL    XDATA    BYTE      i
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 32
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 32
 
 
       ---         BLOCKEND  ---      ---       LVL=1
@@ -2175,7 +2175,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       010007D1H   LINE      CODE     ---       #459
       010007D6H   LINE      CODE     ---       #460
       010007DBH   LINE      CODE     ---       #461
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 33
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 33
 
 
       010007E0H   LINE      CODE     ---       #463
@@ -2243,7 +2243,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       01000905H   LINE      CODE     ---       #538
       0100090AH   LINE      CODE     ---       #541
       ---         BLOCKEND  ---      ---       LVL=0
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 34
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 34
 
 
 
@@ -2311,7 +2311,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       00000007H   SYMBOL    DATA     BYTE      qm
       02000122H   SYMBOL    XDATA    LONG      ulOffset
       02000126H   SYMBOL    XDATA    ---       ywbuf
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 35
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 35
 
 
       02000146H   SYMBOL    XDATA    ---       temp
@@ -2379,7 +2379,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       01000967H   LINE      CODE     ---       #672
       0100096BH   LINE      CODE     ---       #674
       0100096BH   LINE      CODE     ---       #676
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 36
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 36
 
 
       0100096BH   LINE      CODE     ---       #677
@@ -2447,7 +2447,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       01000C36H   LINE      CODE     ---       #748
       ---         BLOCKEND  ---      ---       LVL=0
 
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 37
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 37
 
 
       010002EEH   BLOCK     CODE     ---       LVL=0
@@ -2515,7 +2515,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       0100184CH   PUBLIC    CODE     ---       _delay
       00000080H   SFRSYM    DATA     BYTE      P0
       00000090H   SFRSYM    DATA     BYTE      P1
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 38
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 38
 
 
       000000A0H   SFRSYM    DATA     BYTE      P2
@@ -2583,7 +2583,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       000000D0H.3 SFRSYM    DATA     BIT       RS0
       000000B8H.5 SFRSYM    DATA     BIT       PT2
       00000088H.4 SFRSYM    DATA     BIT       TR0
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 39
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 39
 
 
       000000D0H.4 SFRSYM    DATA     BIT       RS1
@@ -2651,7 +2651,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
       ---         BLOCKEND  ---      ---       LVL=0
 
       0100174BH   BLOCK     CODE     ---       LVL=0
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 40
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 40
 
 
       00000005H   SYMBOL    DATA     BYTE      dat
@@ -2719,7 +2719,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\samartAgr (MYSYS)
 
       ---         MODULE    ---      ---       ?C?CSTOPTR
       0100009EH   PUBLIC    CODE     ---       ?C?CSTOPTR
-LX51 LINKER/LOCATER V4.66.66.0                                                        09/28/2018  16:53:02  PAGE 41
+LX51 LINKER/LOCATER V4.66.66.0                                                        10/09/2018  10:46:18  PAGE 41
 
 
 

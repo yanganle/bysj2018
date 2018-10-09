@@ -1,0 +1,111 @@
+C51 COMPILER V9.56.0.0   UART3                                                             09/03/2018 23:01:55 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE UART3
+OBJECT MODULE PLACED IN .\Objects\uart3.obj
+COMPILER INVOKED BY: D:\Program Files\Keil\C51\BIN\C51.EXE src\uart3.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\inc) DEBU
+                    -G OBJECTEXTEND PRINT(.\Listings\uart3.lst) TABS(2) OBJECT(.\Objects\uart3.obj)
+
+line level    source
+
+   1          
+   2          
+   3          /******************************
+   4          ** @time；2017/11/17 14:30:17
+   5          ** @Author: mantisAlone
+   6          ** @email: gxd@cyb-bot.com
+   7          ** @brief:
+   8          *******************************/ 
+   9          
+  10          #include "uart3.h"
+  11          
+  12          bit busy3;
+  13          u8 UART3_RX_BUF[BUFFER_LENGTH];
+  14          u8 uart3RxSta = 0;
+  15          u8 uart3RxCount;
+  16          u8 uart3RxTimeOut;
+  17          u8 flag_uart3_rx;
+  18          
+  19          void Uart3Init(void)    //115200bps@24.000MHz
+  20          {
+  21   1        P_SW2 &= ~0x02; 
+  22   1        S3CON = 0x10;   //8位数据,可变波特率
+  23   1        S3CON &= 0xBF;    //串口3选择定时器2为波特率发生器
+  24   1        AUXR |= 0x04;   //定时器2时钟为Fosc,即1T
+  25   1        T2L = 0xCC;   //设定定时初值
+  26   1        T2H = 0xFF;   //设定定时初值
+  27   1        AUXR |= 0x10;   //启动定时器2
+  28   1        S3_Int_Enable();
+  29   1        S3_RX_Enable();
+  30   1      }
+  31          
+  32          /*----------------------------
+  33          UART3 中断服务程序
+  34          -----------------------------*/
+  35          void Uart3() interrupt 17 using 1
+  36          {
+  37   1          if (RI3)
+  38   1          {
+  39   2             CLR_RI3(); 
+  40   2             if (uart3RxSta == 0) flag_uart3_rx = 1;
+  41   2             if(uart3RxCount < BUFFER_LENGTH){
+  42   3             uart3RxTimeOut = TIME_OUT;
+  43   3             UART3_RX_BUF[uart3RxCount++] = S3BUF;
+  44   3             }else{
+  45   3             uart3RxSta = 1;
+  46   3            uart3RxCount = 0;
+  47   3            }
+  48   2          }
+  49   1          if (TI3)
+  50   1          {
+  51   2            CLR_TI3();
+  52   2              busy3 = 0;               //清忙标志
+  53   2          }
+  54   1      }
+C51 COMPILER V9.56.0.0   UART3                                                             09/03/2018 23:01:55 PAGE 2   
+
+  55          
+  56          /*----------------------------
+  57          发送串口数据
+  58          ----------------------------*/
+  59          void uart3SendData(char dat)
+  60          {
+  61   1          while (busy3);               //等待前面的数据发送完成
+  62   1          busy3 = 1;
+  63   1          S3BUF = dat;                //写数据到UART3数据寄存器
+  64   1      }
+  65          
+  66          /*----------------------------
+  67          发送字符串
+  68          ----------------------------*/
+  69          void uart3SendString(char *s)
+  70          {
+  71   1          while (*s)                  //检测字符串结束标志
+  72   1          {
+  73   2              uart3SendData(*s++);         //发送当前字符
+  74   2          }
+  75   1      }
+  76          
+  77          void clearBuf3(void)
+  78          {
+  79   1        int i;
+  80   1        for (i=0; i<BUFFER_LENGTH; i++)
+  81   1        {
+  82   2          UART3_RX_BUF[i] = 0;
+  83   2          uart3RxCount = 0;
+  84   2        }
+  85   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    215    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =    204       3
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -76,12 +76,12 @@ void homeForm::updataValue(QByteArray sensorData)
             ui->lampStatelabel->setText(QString::fromLocal8Bit("在线"));
             if((quint8)sensorData[7] == 0x01)
             {
-                QPixmap lamppixmap_on(":/rcs/fancheck_on.png");
+                QPixmap lamppixmap_on(":/rcs/lamp_on.png");
                 ui->lamppixlabel->setPixmap(lamppixmap_on);
             }
             else
             {
-                QPixmap lamppixmap_off(":/rcs/fancheck_off.png");
+                QPixmap lamppixmap_off(":/rcs/lamp_off.png");
                 ui->lamppixlabel->setPixmap(lamppixmap_off);
             }
             break;
@@ -89,15 +89,28 @@ void homeForm::updataValue(QByteArray sensorData)
             ui->pumpStatelabel->setText(QString::fromLocal8Bit("在线"));
             if((quint8)sensorData[7] == 0x01)
             {
-                QPixmap pumppixmap_on(":/rcs/fancheck_on.png");
+                QPixmap pumppixmap_on(":/rcs/pump_on.png");
                 ui->pumppixlabel->setPixmap(pumppixmap_on);
                 emit humancheck(true);
             }
             else
             {
-                QPixmap pumppixmap_off(":/rcs/fancheck_off.png");
+                QPixmap pumppixmap_off(":/rcs/pump_off.png");
                 ui->pumppixlabel->setPixmap(pumppixmap_off);
                 emit humancheck(false);
+            }
+            break;
+        case DEVICE_TURBIDITY: //水质
+            ui->turbStatelabel->setText(QString::fromLocal8Bit("在线"));
+            if((quint8)sensorData[7] == 0x01)
+            {
+                QPixmap turbpixmap_on(":/rcs/fancheck_on.png");
+                ui->turbpixlabel->setPixmap(turbpixmap_on);
+            }
+            else
+            {
+                QPixmap turbpixmap_off(":/rcs/fancheck_off.png");
+                ui->turbpixlabel->setPixmap(turbpixmap_off);
             }
             break;
        default:
@@ -225,6 +238,9 @@ void homeForm::updateSensorStatus(quint8 sensortype)
         case DEVICE_WATER_PUMP:
             sensorflag3 = true;
             break;
+        case DEVICE_TURBIDITY:
+            sensorflag4 = true;
+            break;
         default:
             break;
     }
@@ -246,6 +262,10 @@ void homeForm::resetSensorStatus()
     if(!sensorflag3)
     {
         ui->pumpStatelabel->setText(QString::fromLocal8Bit("离线"));
+    }
+    if(!sensorflag4)
+    {
+        ui->turbStatelabel->setText(QString::fromLocal8Bit("离线"));
     }
 }
 int homeForm::getsensorConfig(quint8 netid,quint8 sensorType)

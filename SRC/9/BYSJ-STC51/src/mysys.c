@@ -39,6 +39,9 @@ void timer0(void) interrupt TIMER0_VECTOR
   if(heartBeat%15 == 0)
 		flag_taskTwo = 1;
 	
+	if(heartBeat%40 == 0)
+		flag_taskThree = 1;
+	
 	if(sendManMsgTout>0)sendManMsgTout--;
 	else sendManMsgFlag = 1;
 	

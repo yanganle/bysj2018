@@ -1,4 +1,4 @@
-C51 COMPILER V9.56.0.0   DS18B20                                                           09/28/2018 16:53:02 PAGE 1   
+C51 COMPILER V9.56.0.0   DS18B20                                                           10/09/2018 10:46:18 PAGE 1   
 
 
 C51 COMPILER V9.56.0.0, COMPILATION OF MODULE DS18B20
@@ -62,7 +62,7 @@ line level    source
   52          ********************************************************************************
   53          */
   54          ReadOneChar()  //主机数据线先从高拉至低电平1us以上，再使数据线升为高电平，从而产生读信号
-C51 COMPILER V9.56.0.0   DS18B20                                                           09/28/2018 16:53:02 PAGE 2   
+C51 COMPILER V9.56.0.0   DS18B20                                                           10/09/2018 10:46:18 PAGE 2   
 
   55          {
   56   1        unsigned char i=0; //每个读周期最短的持续时间为60us，各个读周期之间必须有1us以上的高电平恢复期
@@ -126,7 +126,7 @@ line level    source
  114   1        {
  115   2          tempL=~tempL;         //补码转换，取反加一
  116   2          tempH=~tempH+1;       
-C51 COMPILER V9.56.0.0   DS18B20                                                           09/28/2018 16:53:02 PAGE 3   
+C51 COMPILER V9.56.0.0   DS18B20                                                           10/09/2018 10:46:18 PAGE 3   
 
  117   2          fg=0;      //读取温度为负时fg=0
  118   2        }

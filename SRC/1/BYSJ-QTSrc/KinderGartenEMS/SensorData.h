@@ -13,6 +13,7 @@
 #define DEVICE_HT11           0x04  //ÎÂÊª¶È
 #define DEVICE_HUMAN          0x05  //human
 #define DEVICE_SOUND          0x06  //sound
+#define DEVICE_METHANAL       0x0E  //¼×È©
 
 #define DEVICE_FAN            0x10  //·çÉÈ
 #define DEVICE_LAMP           0x11  //LEDµÆ¹â

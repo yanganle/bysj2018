@@ -2,10 +2,11 @@
 #include "uart.h"
 #include "uart2.h"
 #include "io.h"
+#include "mysys.h"
 
 u8 SMARTMODE = 0;
 
-sysData DataBuf = {DATA_HEADH, DATA_HEADL, 0, 0, 0, 0, CMDID_UP, 0, 0, 0, 0, 0, 0, DATA_END};
+sysData DataBuf = {DATA_HEADH, DATA_HEADL, 0, 0, 0, 0, 0, 0, 0, CMDID_UP, 0, 0, 0, 0, 0, 0, 0, DATA_END};
 
 void Send_SensorData(u8 _SensorType, u8 _SenserIndex, u8 *_pData)
 {
@@ -21,22 +22,23 @@ void Send_SensorData(u8 _SensorType, u8 _SenserIndex, u8 *_pData)
 
 void agreementParse(u8 *str)
 {
-	if(str[0] == DATA_HEADH && str[1] == DATA_HEADL && str[13] == DATA_END)
+	if(str[0] == DATA_HEADH && str[1] == DATA_HEADL && str[17] == DATA_END)
 	{
 		if(str[9] == CMDID_MODE) //设置模式
 		{
-			SMARTMODE = str[12];	
+			SMARTMODE = str[16];	
 		}
 		
 		if(str[9] == CMDID_DOWN) //下发控制指令
 		{
-			switch (str[8]) //不同传感器
+			switch (str[10]) //不同传感器
 			{
 				case SENSOR_SL_ALARM://报警设备
-					if(str[12])
+					if(str[16])
 						BEEP_ON();
 					else
 						BEEP_ON();
+						flag_taskThree = 1;
 					break;
 				case SENSOR_LAMP://灯光
 					//do somthing

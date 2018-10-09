@@ -25,6 +25,8 @@
 #define SENSOR_PH						0x09	 //PH值检测
 #define SENSOR_WATERLEVEL		0x0A	 //水位检测
 
+#define SENSOR_WATER_TURB   0x0C   //水质
+
 //#define SENSOR_FAN				0x10   //风扇
 #define SENSOR_LAMP				0x11   //灯光
 //#define SENSOR_SL_ALARM		0x12   //声光报警

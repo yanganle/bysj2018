@@ -1,12 +1,13 @@
 #include "mysys.h"
 #include "uart.h"
-#include "io.h"
+#include "uart2.h"
 
 u32 heartBeat;
 u8 flag_taskOne = 0;
 u8 flag_taskTwo = 0;
 u8 flag_taskThree = 0;
 u8 flag_taskFour = 0;
+u8 flag_taskFive = 0;
 
 void mysysinit()
 {
@@ -23,28 +24,20 @@ void mysysinit()
 // 中断时间太短会导致串口异常
 void timer0(void) interrupt TIMER0_VECTOR
 {
-	EA = 0;
-	
 	TH0=(65536-46080)/256;
 	TL0=(65536-46080)%256;
 	
 	if(heartBeat < 30000) heartBeat++;
 	else heartBeat = 0;
 
-	if((heartBeat%40)==0)
-		flag_taskOne = 1;
-
-  if(heartBeat%20 == 0)
-		flag_taskTwo = 1;
-	
-	if(heartBeat%10 == 0)
-		flag_taskThree = 1;	
-	
-	if(heartBeat%40 == 0)
-		flag_taskFour = 1;	
+	if((heartBeat%40)==0)flag_taskOne = 1;
+  if(heartBeat%50 == 0)flag_taskTwo = 1;
+	if(heartBeat%20 == 0)flag_taskThree = 1;
+	if(heartBeat%30 == 0)flag_taskFour = 1;
+	if(heartBeat%70 == 0)flag_taskFive = 1;
 	
 	//串口控制相关
-	if(flag_uart_rx)
+	if(flag_uart_rx) //uart1
 	{
 		if(uartRxTimeOut>0)uartRxTimeOut--;
 		else 
@@ -53,5 +46,13 @@ void timer0(void) interrupt TIMER0_VECTOR
 			uartRxSta = 1;
 		}
 	}
-	EA = 1;
+	if(flag_uart2_rx) //uart2
+	{
+		if(uart2RxTimeOut>0)uart2RxTimeOut--;
+		else 
+		{
+			flag_uart2_rx = 0;
+			uart2RxSta = 1;
+		}
+	}
 }

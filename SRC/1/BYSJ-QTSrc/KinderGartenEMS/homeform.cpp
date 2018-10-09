@@ -26,6 +26,7 @@ homeForm::homeForm(QWidget *parent) :
 
     tempThresholdValue = 35;
     humiThresholdValue = 60;
+    methThresholdValue = 30;
 
     tempdata = new SensorRevData();
     timer = new QTimer(this);
@@ -115,6 +116,12 @@ void homeForm::updataValue(QByteArray sensorData)
                 ui->fanpixlabel->setPixmap(fanpixmap_off);
             }
             break;
+        case DEVICE_METHANAL: //甲醛
+            tempData = (((quint8)sensorData[4]<<8)+(quint8)sensorData[5]);
+            //qDebug()<<sensorStr.setNum(tempData);
+            ui->methNumber->display(sensorStr.setNum(tempData));
+            ui->methStatelabel->setText(QString::fromLocal8Bit("在线"));
+            break;
        default:
             break;
      }
@@ -194,7 +201,7 @@ void homeForm::SensorSetModelReq(quint8 model)
     cmddata[10] = 0;
     cmddata[11] = 0;
     cmddata[12] = 0;
-    cmddata[13] = 0;
+    cmddata[13] = methThresholdValue;
     cmddata[14] = humiThresholdValue; //湿度
     cmddata[15] = tempThresholdValue; //温度
     cmddata[16] = model; //模式
@@ -250,6 +257,9 @@ void homeForm::updateSensorStatus(quint8 sensortype)
         case DEVICE_FAN:
             sensorflag3 = true;
             break;
+        case DEVICE_METHANAL:
+            sensorflag4 = true;
+            break;
         default:
             break;
     }
@@ -272,6 +282,10 @@ void homeForm::resetSensorStatus()
     if(!sensorflag3)
     {
         ui->fanStatelabel->setText(QString::fromLocal8Bit("离线"));
+    }
+    if(!sensorflag4)
+    {
+        ui->methStatelabel->setText(QString::fromLocal8Bit("离线"));
     }
 }
 int homeForm::getsensorConfig(quint8 netid,quint8 sensorType)
@@ -315,5 +329,9 @@ void homeForm::on_humiButton_clicked()
     qDebug()<<data.setNum(humiThresholdValue);
 }
 
-
-
+void homeForm::on_methButton_clicked()
+{
+    QString  data;
+    methThresholdValue = ui->methspinBox->value();
+    qDebug()<<data.setNum(methThresholdValue);
+}

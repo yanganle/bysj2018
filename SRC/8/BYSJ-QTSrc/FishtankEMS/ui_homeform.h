@@ -85,14 +85,15 @@ public:
     QLabel *pumppixlabel;
     QGroupBox *groupBox_3;
     QFrame *line_5;
-    QLabel *fanpixlabel;
+    QLabel *turbpixlabel;
     QLabel *label_37;
-    QLabel *fanStatelabel;
+    QLabel *turbStatelabel;
     QWidget *layoutWidget4;
     QVBoxLayout *verticalLayout_5;
     QLabel *label_21;
     QLabel *label_22;
     QLabel *label_23;
+    QLabel *turbvaluelabel;
     QGroupBox *groupBox_5;
     QFrame *line_3;
     QLabel *label_33;
@@ -318,15 +319,15 @@ public:
         line_5->setGeometry(QRect(220, 20, 20, 101));
         line_5->setFrameShape(QFrame::VLine);
         line_5->setFrameShadow(QFrame::Sunken);
-        fanpixlabel = new QLabel(groupBox_3);
-        fanpixlabel->setObjectName(QStringLiteral("fanpixlabel"));
-        fanpixlabel->setGeometry(QRect(80, 40, 81, 81));
+        turbpixlabel = new QLabel(groupBox_3);
+        turbpixlabel->setObjectName(QStringLiteral("turbpixlabel"));
+        turbpixlabel->setGeometry(QRect(80, 40, 81, 81));
         label_37 = new QLabel(groupBox_3);
         label_37->setObjectName(QStringLiteral("label_37"));
         label_37->setGeometry(QRect(320, 70, 31, 16));
-        fanStatelabel = new QLabel(groupBox_3);
-        fanStatelabel->setObjectName(QStringLiteral("fanStatelabel"));
-        fanStatelabel->setGeometry(QRect(320, 35, 31, 16));
+        turbStatelabel = new QLabel(groupBox_3);
+        turbStatelabel->setObjectName(QStringLiteral("turbStatelabel"));
+        turbStatelabel->setGeometry(QRect(320, 35, 31, 16));
         layoutWidget4 = new QWidget(groupBox_3);
         layoutWidget4->setObjectName(QStringLiteral("layoutWidget4"));
         layoutWidget4->setGeometry(QRect(240, 30, 62, 91));
@@ -348,6 +349,9 @@ public:
 
         verticalLayout_5->addWidget(label_23);
 
+        turbvaluelabel = new QLabel(groupBox_3);
+        turbvaluelabel->setObjectName(QStringLiteral("turbvaluelabel"));
+        turbvaluelabel->setGeometry(QRect(170, 70, 41, 21));
 
         gridLayout_2->addWidget(groupBox_3, 2, 0, 1, 1);
 
@@ -442,13 +446,14 @@ public:
         label_13->setText(QApplication::translate("homeForm", "\351\230\210\345\200\274\350\256\276\347\275\256", 0));
         pumpvaluelabel->setText(QString());
         pumppixlabel->setText(QString());
-        groupBox_3->setTitle(QString());
-        fanpixlabel->setText(QString());
-        label_37->setText(QString());
-        fanStatelabel->setText(QString());
-        label_21->setText(QString());
-        label_22->setText(QString());
-        label_23->setText(QString());
+        groupBox_3->setTitle(QApplication::translate("homeForm", "\346\265\212\345\272\246", 0));
+        turbpixlabel->setText(QString());
+        label_37->setText(QApplication::translate("homeForm", "\346\243\200\346\265\213", 0));
+        turbStatelabel->setText(QApplication::translate("homeForm", "\347\246\273\347\272\277", 0));
+        label_21->setText(QApplication::translate("homeForm", "\350\256\276\345\244\207\347\212\266\346\200\201", 0));
+        label_22->setText(QApplication::translate("homeForm", "\350\256\276\345\244\207\347\261\273\345\236\213", 0));
+        label_23->setText(QApplication::translate("homeForm", "\351\230\210\345\200\274\350\256\276\347\275\256", 0));
+        turbvaluelabel->setText(QString());
         groupBox_5->setTitle(QApplication::translate("homeForm", "\347\203\255\347\201\257", 0));
         label_33->setText(QString());
         lampStatelabel->setText(QApplication::translate("homeForm", "\347\246\273\347\272\277", 0));

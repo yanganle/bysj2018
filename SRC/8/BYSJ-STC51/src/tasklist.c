@@ -58,3 +58,14 @@ void MyTask_Four(void)
 	Send_SensorData(SENSOR_WATER_PUMP, 0, sdata);
 }
 
+void MyTask_Five(void)
+{
+	//if(IO_PUMP) Display_ASCII8X16_Color(50,100,"ON ",RED,WHITE); 
+	//else Display_ASCII8X16_Color(50,100,"OFF",BLACK,WHITE); 
+	sdata[0] = 0;
+	sdata[1] = 0;
+	sdata[2] = 0;
+	sdata[3] = IO_TURB;
+	Send_SensorData(SENSOR_WATER_TURB, 0, sdata);
+}
+

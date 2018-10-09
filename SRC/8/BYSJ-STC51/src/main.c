@@ -37,7 +37,11 @@ void main(void)
 			MyTask_Four(); //任务四:水泵
 			flag_taskFour=0;
 		}
-
+		if(flag_taskFive)
+		{
+			MyTask_Five(); //任务五:水质
+			flag_taskFive=0;
+		}
 		if(SMARTMODE) //自动模式
 		{
 			if(uartRxSta)

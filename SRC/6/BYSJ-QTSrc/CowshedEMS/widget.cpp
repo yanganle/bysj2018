@@ -163,6 +163,6 @@ void Widget::receviceHumdata(double data)
 
 void Widget::on_startButton_clicked()
 {
-    nodeform->show();
+    //nodeform->show();
 }
 

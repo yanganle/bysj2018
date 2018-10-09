@@ -1,0 +1,66 @@
+C51 COMPILER V9.56.0.0   GETFROMSCREEN                                                     11/23/2017 11:29:46 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE GETFROMSCREEN
+OBJECT MODULE PLACED IN .\Objects\getFromScreen.obj
+COMPILER INVOKED BY: D:\SOFTWARE\keil5\C51\BIN\C51.EXE src\getFromScreen.c LARGE OPTIMIZE(8,SPEED) BROWSE INCDIR(.\inc) 
+                    -DEBUG OBJECTEXTEND PRINT(.\Listings\getFromScreen.lst) TABS(2) OBJECT(.\Objects\getFromScreen.obj)
+
+line level    source
+
+   1          
+   2          
+   3          /******************************
+   4          ** @time；2017/11/8 15:56:38
+   5          ** @Author: mantisAlone
+   6          ** @email: gxd@cyb-bot.com
+   7          ** @brief: 从屏幕中获取数据
+   8          *******************************/ 
+   9          
+  10          
+  11          #include "getFromScreen.h"
+  12          
+  13          
+  14          
+  15          float getFloatValue(unsigned char addr)
+  16          {
+  17   1        float value;
+  18   1      
+  19   1        dgusReadNbyte(addr,1);
+  20   1        while(DGUS_STA != 1);
+  21   1        if (DGUS_RX_BUF[0] == HEADH && DGUS_RX_BUF[1] == HEADL &&DGUS_RX_BUF[2] == 6) 
+  22   1        {
+  23   2          value = (DGUS_RX_BUF[7]<<8)+DGUS_RX_BUF[8];
+  24   2          return value;
+  25   2        }
+  26   1        return -1;
+  27   1      }
+  28          
+  29          ushort getShortValue(unsigned char addr)
+  30          {
+  31   1        ushort value;
+  32   1      
+  33   1        dgusReadNbyte(addr,1);
+  34   1        while(DGUS_STA != 1);
+  35   1        if (DGUS_RX_BUF[0] == HEADH && DGUS_RX_BUF[1] == HEADL &&DGUS_RX_BUF[2] == 6) 
+  36   1        {
+  37   2          value = (DGUS_RX_BUF[7]<<8) + DGUS_RX_BUF[8];
+  38   2          return value;
+  39   2        }
+  40   1        return -1;
+  41   1      }
+  42          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    109    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

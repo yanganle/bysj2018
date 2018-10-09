@@ -54,7 +54,7 @@ private slots:
     void InitWifiDev(void);
     void closeComthread(void);
     void closeWifithread(void);
-    void on_startButton_clicked();
+    //void on_startButton_clicked();
     void receviceMandata(bool flag);
     void receviceHumdata(double data);
     void receviceTempdata(double data);

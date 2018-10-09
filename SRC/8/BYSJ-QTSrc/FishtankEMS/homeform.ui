@@ -516,7 +516,7 @@
        <item row="2" column="0">
         <widget class="QGroupBox" name="groupBox_3">
          <property name="title">
-          <string/>
+          <string>浊度</string>
          </property>
          <widget class="Line" name="line_5">
           <property name="geometry">
@@ -531,7 +531,7 @@
            <enum>Qt::Vertical</enum>
           </property>
          </widget>
-         <widget class="QLabel" name="fanpixlabel">
+         <widget class="QLabel" name="turbpixlabel">
           <property name="geometry">
            <rect>
             <x>80</x>
@@ -554,10 +554,10 @@
            </rect>
           </property>
           <property name="text">
-           <string/>
+           <string>检测</string>
           </property>
          </widget>
-         <widget class="QLabel" name="fanStatelabel">
+         <widget class="QLabel" name="turbStatelabel">
           <property name="geometry">
            <rect>
             <x>320</x>
@@ -567,7 +567,7 @@
            </rect>
           </property>
           <property name="text">
-           <string/>
+           <string>离线</string>
           </property>
          </widget>
          <widget class="QWidget" name="layoutWidget">
@@ -583,25 +583,38 @@
            <item>
             <widget class="QLabel" name="label_21">
              <property name="text">
-              <string/>
+              <string>设备状态</string>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QLabel" name="label_22">
              <property name="text">
-              <string/>
+              <string>设备类型</string>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QLabel" name="label_23">
              <property name="text">
-              <string/>
+              <string>阈值设置</string>
              </property>
             </widget>
            </item>
           </layout>
+         </widget>
+         <widget class="QLabel" name="turbvaluelabel">
+          <property name="geometry">
+           <rect>
+            <x>170</x>
+            <y>70</y>
+            <width>41</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
          </widget>
         </widget>
        </item>
